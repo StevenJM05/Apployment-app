@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_trabajadores"
+        android:icon="@drawable/maletin"
+        android:title="Trabajadores" />
+    <item
+        android:id="@+id/navigation_publicaciones"
+        android:icon="@drawable/megafono"
+        android:title="Publicaciones" />
+    <item
+        android:id="@+id/navigation_perfil"
+        android:icon="@drawable/busqueda"
+        android:title="Buscar" />
+    <item
+        android:id="@+id/navigation_usuario"
+        android:icon="@drawable/usuario"
+        android:title="Perfil" />
+</menu>
