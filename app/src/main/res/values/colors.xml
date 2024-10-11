@@ -2,13 +2,12 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="navigation_item_color">#8A8A8A</color> <!-- Color para ítems no seleccionados -->
-    <color name="navigation_item_selected_color">#0000FF</color> <!-- Color para ítems seleccionados -->
-    <color name="dark_background">#121212</color> <!-- Fondo oscuro -->
-    <color name="dark_primary">#1F1F1F</color>    <!-- Color primario oscuro -->
-    <color name="accent">#BB86FC</color>          <!-- Color de acento -->
-    <color name="text_color">#FFFFFF</color>      <!-- Color del texto -->
-    <color name="icon_color">#B0BEC5</color>      <!-- Color de los íconos no seleccionados -->
-    <color name="icon_selected_color">#03DAC5</color> <!-- Color de los íconos seleccionados -->
-
+    <color name="navigation_item_color">#8A8A8A</color>
+    <color name="navigation_item_selected_color">#0000FF</color>
+    <color name="dark_background">#121212</color>
+    <color name="dark_primary">#1F1F1F</color>
+    <color name="accent">#BB86FC</color>
+    <color name="text_color">#FFFFFF</color>
+    <color name="icon_color">#B0BEC5</color>
+    <color name="icon_selected_color">#03DAC5</color>
 </resources>

@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -27,27 +28,33 @@ public class MainActivity extends AppCompatActivity {
         });
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
-        bottomNavigationView.setOnItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, new WorkersFragment())
+                .commit();
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public void onNavigationItemReselected(@NonNull MenuItem item) {
-                Intent ventana = null;
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                Fragment selectedFragment = null;
+
                 if(item.getItemId()== R.id.navigation_trabajadores){
-                    ventana = new Intent(MainActivity.this, activity_trabajadores.class);
-                    startActivity(ventana);
+                    selectedFragment = new WorkersFragment();
+                } else if (item.getItemId()==R.id.navigation_publicaciones) {
+                    selectedFragment = new PublicationsFragment();
+                }else if(item.getItemId() == R.id.navigation_buscar){
+                    selectedFragment = new SearchFragment();
+                }else if(item.getItemId()== R.id.navigation_perfil){
+                    selectedFragment = new ProfileFragment();
                 }
-                if(item.getItemId()==R.id.navigation_publicaciones){
-                    ventana = new Intent(MainActivity.this, activity_publicaciones.class);
-                    startActivity(ventana);
+                if(selectedFragment != null){
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.fragment_container, selectedFragment)
+                            .commit();
                 }
-                if(item.getItemId()==R.id.navigation_buscar){
-                    ventana = new Intent(MainActivity.this, activity_buscar.class);
-                    startActivity(ventana);
-                }
-                if(item.getItemId()==R.id.navigation_perfil){
-                    ventana  = new Intent(MainActivity.this, activity_perfil.class);
-                    startActivity(ventana);
-                }
+                return true;
             }
         });
+
     }
 }
