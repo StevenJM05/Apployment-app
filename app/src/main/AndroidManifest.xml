@@ -25,6 +25,9 @@
             android:name=".activity_trabajadores"
             android:exported="false" />
         <activity
+            android:name=".NuevaActividad"
+        android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
