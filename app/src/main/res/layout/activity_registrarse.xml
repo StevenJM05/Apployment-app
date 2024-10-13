@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:layout_gravity="center"
-        android:background="@color/black"
+        android:background="#BB86FC"
         android:layout_marginTop="500dp"
         app:cardCornerRadius="20dp"
         app:cardElevation="5dp"
