@@ -2,4 +2,9 @@
     <string name="app_name">Apployment</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="no_tienes_una_cuenta_crea_una">¿No tienes una cuenta? Crea una.</string>
+    <string name="inicio_de_sesi_n">Inicio de Sesión</string>
+    <string name="ingrese_correo_electr_nico">Ingrese correo electrónico</string>
+    <string name="ingrese_su_contrase_a">Ingrese su contraseña</string>
+    <string name="ingresar">Ingresar</string>
 </resources>
