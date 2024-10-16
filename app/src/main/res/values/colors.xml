@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="purple_500">#BB86FC</color>
+    <color name="purple_700">#3700B3</color>
+    <color name="gray">#8A8A8A</color>
+    <color name="blue">#0000FF</color>
     <color name="navigation_item_color">#8A8A8A</color>
     <color name="navigation_item_selected_color">#0000FF</color>
     <color name="dark_background">#121212</color>
     <color name="dark_primary">#1F1F1F</color>
     <color name="accent">#BB86FC</color>
-    <color name="text_color">#FFFFFF</color>
+
     <color name="icon_color">#B0BEC5</color>
     <color name="icon_selected_color">#03DAC5</color>
+
 </resources>

@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Apployment"
         tools:targetApi="31">
         <activity
+            android:name=".Registrarse"
+            android:exported="false" />
+        <activity
             android:name=".activity_perfil"
             android:exported="false" />
         <activity
@@ -24,6 +27,9 @@
         <activity
             android:name=".activity_trabajadores"
             android:exported="false" />
+        <activity
+            android:name=".NuevaActividad"
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
