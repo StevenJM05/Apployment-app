@@ -17,4 +17,14 @@
     <string name="registrarse">Registrarse</string>
     <string name="ya_tienes_cuenta">¿Ya tienes cuenta?</string>
     <string name="iniciar_sesi_n">Iniciar sesión</string>
+    <string name="user_name">User Name</string>
+    <string name="descripcion_de_la_publicacion">Descripcion de la publicacion</string>
+    <string name="like">like</string>
+    <string name="ver_mas">ver mas</string>
+    <string name="detalles_de_la_publicacion">Detalles de la publicacion</string>
+    <string name="whatsapp">whatsapp</string>
+    <string name="facebook">facebook</string>
+    <string name="telefono">telefono</string>
+    <string name="ubicacion">Ubicacion</string>
+    <string name="fecha">Fecha</string>
 </resources>
