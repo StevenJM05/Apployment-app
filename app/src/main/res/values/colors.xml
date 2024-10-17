@@ -15,6 +15,8 @@
     <color name="accent">#BB86FC</color>
 
     <color name="icon_color">#B0BEC5</color>
+    <color name="moradoclaro">#7F76BF</color>
+    <color name="naranja">#BF8376</color>
     <color name="icon_selected_color">#03DAC5</color>
 
 </resources>

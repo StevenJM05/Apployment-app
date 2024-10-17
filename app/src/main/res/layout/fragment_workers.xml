@@ -29,17 +29,18 @@
             android:id="@+id/icononotificaciones"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
-            android:layout_marginEnd="-77dp"
+            android:layout_marginEnd="-76dp"
             android:src="@drawable/notificaciones"
-            app:tint="@color/white" />
+            app:tint="@color/white"/>
 
         <ImageView
             android:id="@+id/imagenperfil"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
-            android:layout_marginEnd="-49dp"
+            android:layout_marginEnd="-47dp"
             android:src="@drawable/perfil"
-            app:tint="@color/white" />
+            app:tint="@color/white"
+          />
     </LinearLayout>
 
 
@@ -68,173 +69,187 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/carta1"
-                android:layout_width="100dp"
-                android:layout_height="120dp"
-                android:layout_margin="10dp"
+                android:layout_width="140dp"
+                android:layout_height="50dp"
+                android:layout_margin="5dp"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="10dp"
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?attr/selectableItemBackground"
-                app:cardBackgroundColor="@color/accent">
+                app:cardBackgroundColor="@color/moradoclaro">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="horizontal">
 
                     <de.hdodenhof.circleimageview.CircleImageView
-                        android:layout_width="100dp"
-                        android:layout_height="80dp"
+                        android:layout_width="92dp"
+                        android:layout_height="32dp"
                         android:layout_marginTop="10dp"
+                        android:layout_marginStart="-20dp"
                         android:src="@drawable/img" />
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="98dp"
+                        android:layout_height="20dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="-22dp"
                         android:text="Electricistas"
                         android:textColor="@color/black"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:layout_gravity="center"/>
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
                 android:id="@+id/carta2"
-                android:layout_width="100dp"
-                android:layout_height="120dp"
-                android:layout_margin="10dp"
+                android:layout_width="140dp"
+                android:layout_height="50dp"
+                android:layout_margin="5dp"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="10dp"
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?attr/selectableItemBackground"
-                app:cardBackgroundColor="@color/accent">
+                app:cardBackgroundColor="@color/moradoclaro">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="horizontal">
 
                     <de.hdodenhof.circleimageview.CircleImageView
-                        android:layout_width="100dp"
-                        android:layout_height="80dp"
+                        android:layout_width="92dp"
+                        android:layout_height="32dp"
                         android:layout_marginTop="10dp"
+                        android:layout_marginStart="-20dp"
                         android:src="@drawable/img" />
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="98dp"
+                        android:layout_height="20dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="-22dp"
                         android:text="Carpinteros"
                         android:textColor="@color/black"
-                        android:textSize="19sp"
+                        android:textSize="14sp"
                         android:textStyle="bold"
-                        android:layout_gravity="center"
                      />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
                 android:id="@+id/carta3"
-                android:layout_width="100dp"
-                android:layout_height="120dp"
-                android:layout_margin="10dp"
+                android:layout_width="140dp"
+                android:layout_height="50dp"
+                android:layout_margin="5dp"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="10dp"
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?attr/selectableItemBackground"
-                app:cardBackgroundColor="@color/accent">
+                app:cardBackgroundColor="@color/moradoclaro">
 
             <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="horizontal">
 
                     <de.hdodenhof.circleimageview.CircleImageView
-                        android:layout_width="100dp"
-                        android:layout_height="80dp"
+                        android:layout_width="92dp"
+                        android:layout_height="32dp"
                         android:layout_marginTop="10dp"
+                        android:layout_marginStart="-20dp"
                         android:src="@drawable/img" />
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="98dp"
+                        android:layout_height="20dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="-22dp"
                         android:text="Mecánicos"
                         android:textColor="@color/black"
-                        android:textSize="19sp"
-                        android:textStyle="bold"
-                        android:layout_gravity="center"/>
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
                 android:id="@+id/carta4"
-                android:layout_width="100dp"
-                android:layout_height="120dp"
-                android:layout_margin="10dp"
+                android:layout_width="140dp"
+                android:layout_height="50dp"
+                android:layout_margin="5dp"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="10dp"
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?attr/selectableItemBackground"
-                app:cardBackgroundColor="@color/accent">
+                app:cardBackgroundColor="@color/moradoclaro">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="horizontal">
 
                     <de.hdodenhof.circleimageview.CircleImageView
-                        android:layout_width="100dp"
-                        android:layout_height="80dp"
+                        android:layout_width="92dp"
+                        android:layout_height="32dp"
                         android:layout_marginTop="10dp"
+                        android:layout_marginStart="-20dp"
                         android:src="@drawable/img" />
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="98dp"
+                        android:layout_height="20dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="-22dp"
                         android:text="Pintores"
                         android:textColor="@color/black"
-                        android:textSize="19sp"
-                        android:textStyle="bold"
-                        android:layout_gravity="center"/>
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
                 android:id="@+id/carta5"
-                android:layout_width="100dp"
-                android:layout_height="120dp"
-                android:layout_margin="10dp"
+                android:layout_width="140dp"
+                android:layout_height="50dp"
+                android:layout_margin="5dp"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="10dp"
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?attr/selectableItemBackground"
-                app:cardBackgroundColor="@color/accent">
+                app:cardBackgroundColor="@color/moradoclaro">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="horizontal">
 
                     <de.hdodenhof.circleimageview.CircleImageView
-                        android:layout_width="100dp"
-                        android:layout_height="80dp"
+                        android:layout_width="92dp"
+                        android:layout_height="32dp"
                         android:layout_marginTop="10dp"
+                        android:layout_marginStart="-20dp"
                         android:src="@drawable/img" />
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Albañiles"
-                        android:textSize="19sp"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
+                        android:layout_width="98dp"
+                        android:layout_height="20dp"
+                        android:layout_marginTop="4dp"
                         android:layout_gravity="center"
-                       />
+                        android:layout_marginStart="-22dp"
+                        android:text="Albañiles"
+                        android:textSize="14sp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -270,7 +285,7 @@
             android:clickable="true"
             android:focusable="true"
             android:foreground="?attr/selectableItemBackground"
-            app:cardBackgroundColor="@color/accent">
+            app:cardBackgroundColor="@color/moradoclaro">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -328,7 +343,7 @@
             android:clickable="true"
             android:focusable="true"
             android:foreground="?attr/selectableItemBackground"
-            app:cardBackgroundColor="@color/accent">
+            app:cardBackgroundColor="@color/moradoclaro">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -386,7 +401,7 @@
             android:clickable="true"
             android:focusable="true"
             android:foreground="?attr/selectableItemBackground"
-            app:cardBackgroundColor="@color/accent">
+            app:cardBackgroundColor="@color/moradoclaro">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -444,7 +459,7 @@
             android:clickable="true"
             android:focusable="true"
             android:foreground="?attr/selectableItemBackground"
-            app:cardBackgroundColor="@color/accent">
+            app:cardBackgroundColor="@color/moradoclaro">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -502,7 +517,7 @@
             android:clickable="true"
             android:focusable="true"
             android:foreground="?attr/selectableItemBackground"
-            app:cardBackgroundColor="@color/accent">
+            app:cardBackgroundColor="@color/moradoclaro">
 
             <LinearLayout
                 android:layout_width="match_parent"
