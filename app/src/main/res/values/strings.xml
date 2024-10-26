@@ -27,4 +27,7 @@
     <string name="telefono">telefono</string>
     <string name="ubicacion">Ubicacion</string>
     <string name="fecha">Fecha</string>
+    <string name="apployment">Apployment</string>
+    <string name="logo_description">logo_description</string>
+    <string name="bienvenido_a">Bienvenido(a)</string>
 </resources>

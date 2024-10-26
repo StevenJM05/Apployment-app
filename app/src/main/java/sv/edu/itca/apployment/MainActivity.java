@@ -2,6 +2,7 @@ package sv.edu.itca.apployment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.MenuItem;
 
 import androidx.activity.EdgeToEdge;
