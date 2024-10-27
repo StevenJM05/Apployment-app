@@ -54,89 +54,110 @@
                 app:srcCompat="@drawable/perfil"
                 tools:ignore="UnusedAttribute,ImageContrastCheck" />
 
-            <EditText
-                android:id="@+id/Nom"
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="325dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="5dp"
-                android:ems="10"
-                android:drawableStart="@drawable/icon_person"
-                android:drawablePadding="10dp"
-                android:importantForAutofill="no"
-                android:inputType="text"
-                android:minHeight="48dp"
-                android:hint="@string/ingrese_su_nombre"
-                android:textColorHint="#FFFFFF"
-                tools:ignore="TextViewEdits" />
+                android:textColorHint="@color/white"
+                app:startIconTint="@color/white"
+                app:startIconDrawable="@drawable/icon_person"
+                app:helperTextTextColor="@color/white"
+                app:helperText="* requerido"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="325dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:id="@+id/Nom"
+                    android:hint="      Nombre" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <EditText
-                android:id="@+id/User"
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="325dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:ems="10"
-                android:importantForAutofill="no"
-                android:inputType="text"
-                android:minHeight="48dp"
-                android:hint="@string/ingrese_un_usuario"
-                android:textColorHint="#FFFFFF"
-                android:drawableStart="@drawable/icon_person"
-                android:drawablePadding="10dp"
-                tools:ignore="DuplicateSpeakableTextCheck,TextViewEdits"
-                android:layout_marginTop="5dp"
-                />
+                android:textColorHint="@color/white"
+                app:startIconTint="@color/white"
+                app:startIconDrawable="@drawable/icon_person"
+                app:helperTextTextColor="@color/white"
+                app:helperText="* requerido"
+                >
 
-            <EditText
-                android:id="@+id/Email"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="325dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:id="@+id/username"
+                    android:hint="      Usuario" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="325dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:autofillHints=""
-                android:ems="10"
-                android:hint="@string/ingrese_su_correo"
-                android:drawableStart="@drawable/icon_email"
-                android:drawablePadding="10dp"
-                android:importantForAutofill="no"
-                android:inputType="textEmailAddress"
-                android:minHeight="48dp"
-                android:textColorHint="#FFFFFF"
-                android:layout_marginTop="5dp"
-                tools:ignore="TextViewEdits" />
+                android:textColorHint="@color/white"
+                app:startIconTint="@color/white"
+                app:startIconDrawable="@drawable/icon_email"
+                app:helperTextTextColor="@color/white"
+                app:helperText="* requerido"
+                >
 
-            <EditText
-                android:id="@+id/editTextPassword"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="325dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Email"
+                    android:hint="      Correo" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="325dp"
                 android:layout_height="wrap_content"
+                app:startIconDrawable="@drawable/icon_lock"
                 android:layout_gravity="center"
-                android:autoText="false"
-                android:ems="10"
-                android:hint="@string/contrase_a"
-                android:inputType="textPassword"
-                android:minHeight="48dp"
-                android:layout_marginTop="5dp"
-                android:drawableStart="@drawable/icon_lock"
-                android:drawablePadding="10dp"
-                android:textColorHint="#FFFFFF"
-                tools:ignore="Autofill,Deprecated,TextViewEdits" />
+                android:textColorHint="@color/white"
+                app:helperText="* requerido"
+                app:helperTextTextColor="@color/white"
+                app:startIconTint="@color/white"
+                app:counterEnabled="true"
+                app:endIconMode="password_toggle"
+                app:endIconTint="@color/white"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/password"
+                    android:textColor="@color/white"
+                    android:inputType="textPassword"
 
-            <EditText
-                android:id="@+id/ConfirmPass"
+                    android:hint="      Clave" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="325dp"
                 android:layout_height="wrap_content"
+                app:startIconDrawable="@drawable/icon_lock"
                 android:layout_gravity="center"
-                android:autoText="false"
-                android:ems="10"
-                android:hint="@string/confirme_su_contrase_a"
-                android:importantForAutofill="no"
-                android:inputType="textPassword"
-                android:drawableStart="@drawable/icon_lock"
-                android:drawablePadding="10dp"
-                android:minHeight="38dp"
-                android:layout_marginTop="5dp"
+                android:textColorHint="@color/white"
+                app:helperText="* requerido"
+                app:helperTextTextColor="@color/white"
+                app:startIconTint="@color/white"
+                app:counterEnabled="true"
+                app:endIconMode="password_toggle"
+                app:endIconTint="@color/white"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ConfirmPass"
+                    android:textColor="@color/white"
+                    android:inputType="textPassword"
 
-                android:textColorHint="#FFFFFF"
-                tools:ignore="Deprecated,TextViewEdits" />
+                    android:hint="      Confirmar Clave" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <Button
                 android:id="@+id/btnRegistrar"
