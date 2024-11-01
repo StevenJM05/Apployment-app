@@ -1,11 +1,14 @@
 package sv.edu.itca.apployment;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,12 +16,24 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+import sv.edu.itca.apployment.adapter.WorkerAdapter;
+import sv.edu.itca.apployment.modelos.Worker;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link WorkersFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
 public class WorkersFragment extends Fragment {
+    private RecyclerView recyclerViewWorkers;
+    private WorkerAdapter workerAdapter;
+    private List<Worker> workerList = new ArrayList<>();
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -67,115 +82,29 @@ public class WorkersFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_workers, container, false);
 
-        // Configuración de cada CardView
-        int[] cardViewIds = {
-                R.id.carta1, R.id.carta2, R.id.carta3, R.id.carta4, R.id.carta5
-        };
+        recyclerViewWorkers = view.findViewById(R.id.recyclerViewWorkers);
+        recyclerViewWorkers.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        for (int id : cardViewIds) {
-            CardView cardView = view.findViewById(id);
-            cardView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    openWorkersFragment();
-                    Toast.makeText(getActivity(), "Clic en la carta", Toast.LENGTH_SHORT).show();
-                }
-            });
-        }
+        workerAdapter = new WorkerAdapter((List<Worker>) getContext(), (Context) workerList);
+        recyclerViewWorkers.setAdapter(workerAdapter);
+
+        loadWorkers();
 
 
-        //ICONOS DEL PERFIL Y NOTIFICACIONES
-        ImageView icononotificaciones = view.findViewById(R.id.icononotificaciones);
-        ImageView imagenperfil= view.findViewById(R.id.imagenperfil);
-
-        //Para que el icono de notificaciones pueda darse clic
-        icononotificaciones.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getActivity(),"Notificaciones Clicadas", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        //Para que el icono del perfil pueda darse clic
-        imagenperfil.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getActivity(),"Perfil Clicado", Toast.LENGTH_SHORT).show();
-            }
-        });
         return view;
     }
 
-    // Método para abrir WorkersFragment
-    private void openWorkersFragment() {
-        WorkersFragment workersFragment = new WorkersFragment();
-        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.fragment_container, workersFragment);
-        transaction.addToBackStack(null);
-        transaction.commit();
+    private void loadWorkers() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://192.168.56.1/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        WorkerApi workerApi = retrofit.create(WorkerApi.class)
+
+
     }
+
+
 }
-        // Inflate the layout for this fragment
-       /* View view = inflater.inflate(R.layout.fragment_workers, container, false);
 
-        CardView cardView = view.findViewById(R.id.carta1);
-        cardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                WorkersFragment workersFragment = new WorkersFragment();
-                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.fragment_container, workersFragment);
-                transaction.addToBackStack(null);
-                transaction.commit();;
-            }
-        });
-
-        CardView cardView2 = view.findViewById(R.id.carta2);
-        cardView2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                WorkersFragment workersFragment = new WorkersFragment();
-                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.fragment_container, workersFragment);
-                transaction.addToBackStack(null);
-                transaction.commit();;
-            }
-        });
-
-        CardView cardView3 = view.findViewById(R.id.carta3);
-        cardView3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                WorkersFragment workersFragment = new WorkersFragment();
-                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.fragment_container, workersFragment);
-                transaction.addToBackStack(null);
-                transaction.commit();;
-            }
-        });
-
-        CardView cardView4 = view.findViewById(R.id.carta4);
-        cardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                WorkersFragment workersFragment = new WorkersFragment();
-                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.fragment_container, workersFragment);
-                transaction.addToBackStack(null);
-                transaction.commit();;
-            }
-        });
-
-        CardView cardView5 = view.findViewById(R.id.carta5);
-        cardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                WorkersFragment workersFragment = new WorkersFragment();
-                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.fragment_container, workersFragment);
-                transaction.addToBackStack(null);
-                transaction.commit();;
-            }
-        });
-        return view;*/
 
