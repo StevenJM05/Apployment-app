@@ -49,7 +49,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void verificarDatos(String userEmail, String userPass) {
-        String url = "http://192.168.1.59/api/login";
+        String url = "http://192.168.3.112/api/login";
         RequestParams params = new RequestParams();
         params.put("email", userEmail);
         params.put("password", userPass);
