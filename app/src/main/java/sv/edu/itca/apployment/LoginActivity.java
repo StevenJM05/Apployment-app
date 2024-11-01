@@ -2,6 +2,7 @@ package sv.edu.itca.apployment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -92,4 +93,11 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
+    public void OpenRegistrarse(View view) {
+        Intent intento1 = new Intent(this, Registrarse.class);
+        startActivity(intento1);
+    }
+
+
 }
