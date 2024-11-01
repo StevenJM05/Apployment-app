@@ -8,7 +8,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -50,7 +49,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void verificarDatos(String userEmail, String userPass) {
-        String url = "http://192.168.56.1/api/login";
+        String url = "http://192.168.1.59/api/login";
         RequestParams params = new RequestParams();
         params.put("email", userEmail);
         params.put("password", userPass);
