@@ -7,4 +7,12 @@
     android:layout_height="match_parent"
     tools:context=".TrabajadoresActivity">
 
+    <FrameLayout
+        android:id="@+id/contenedor_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
