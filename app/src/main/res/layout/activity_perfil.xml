@@ -34,7 +34,8 @@
                 android:layout_gravity="bottom|right"
                 android:src="@drawable/icon_add"
                 android:background="@android:color/transparent"
-                android:contentDescription="Botón de acción" />
+                android:contentDescription="Botón de acción"
+                tools:ignore="RtlHardcoded" />
         </FrameLayout>
     </FrameLayout>
 
