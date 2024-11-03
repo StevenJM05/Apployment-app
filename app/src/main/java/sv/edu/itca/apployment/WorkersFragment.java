@@ -96,10 +96,10 @@ public class WorkersFragment extends Fragment {
 
     private void loadWorkers() {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.56.1/")
+                .baseUrl("http://192.168.1.59/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-        WorkerApi workerApi = retrofit.create(WorkerApi.class)
+
 
 
     }
