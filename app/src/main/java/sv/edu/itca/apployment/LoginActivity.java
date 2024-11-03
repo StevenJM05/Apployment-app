@@ -49,7 +49,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void verificarDatos(String userEmail, String userPass) {
-        String url = "http://192.168.3.112/api/login";
+        String url = "http://192.168.1.3/api/login";
         RequestParams params = new RequestParams();
         params.put("email", userEmail);
         params.put("password", userPass);
@@ -62,7 +62,7 @@ public class LoginActivity extends AppCompatActivity {
                     String respuesta = new String(responseBody);
                     try {
                         JSONObject jsonResponse = new JSONObject(respuesta);
-                        if (jsonResponse.has("token")) {
+                        if (jsonResponse.has("token")&& jsonResponse.has("role")) {
                             String token = jsonResponse.getString("token");
                             String role = jsonResponse.getString("role");
                             String userName = jsonResponse.getString("user_name");
