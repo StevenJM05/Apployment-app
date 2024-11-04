@@ -66,19 +66,21 @@ public class LoginActivity extends AppCompatActivity {
                             String token = jsonResponse.getString("token");
                             String role = jsonResponse.getString("role");
 
-                            MostrarMensaje("Bienvenido " );
 
                             if (role.equals("worker")) {
-                                Intent intent = new Intent(LoginActivity.this, prelogin.class);
-                                intent.putExtra("token", token);
-                                startActivity(intent);
+                                Toast.makeText(LoginActivity.this, "BIENVENIDO" , Toast.LENGTH_SHORT).show();
+                                Intent intento1 = new Intent(LoginActivity.this, MainActivity.class);
+                                intento1.putExtra("token", token);
+                                startActivity(intento1);
+
                             } else if (role.equals("user")) {
-                                Intent intent = new Intent(LoginActivity.this, prelogin.class);
-                                intent.putExtra("token", token);
-                                startActivity(intent);
+                                Toast.makeText(LoginActivity.this, "BIENVENIDO" , Toast.LENGTH_SHORT).show();
+                                Intent intento2 = new Intent(LoginActivity.this, MainActivity.class);
+                                intento2.putExtra("token", token);
+                                startActivity(intento2);
                             }
                             else{
-                                Toast.makeText(LoginActivity.this, "BIENVENIDO" + role, Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, "BIENVENIDO" , Toast.LENGTH_SHORT).show();
                             }
                         } else {
                             MostrarMensaje("Error en el inicio de sesión");

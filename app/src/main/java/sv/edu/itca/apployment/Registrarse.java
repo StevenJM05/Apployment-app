@@ -86,22 +86,20 @@ public class Registrarse extends AppCompatActivity {
                             Toast.makeText(Registrarse.this, "Registro completado. Bienvenido " + role, Toast.LENGTH_SHORT).show();
 
                             // Redirigir a la pantalla de inicio de sesión
-                            Intent ini = new Intent(Registrarse.this, prelogin.class);
+                            Intent ini = new Intent(Registrarse.this, MainActivity.class);
                             startActivity(ini);
                         } else {
-                            Toast.makeText(Registrarse.this, "No se pudo registrar", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Registrarse.this, "No se pudo registrar, intentelo nuevamente", Toast.LENGTH_SHORT).show();
                         }
                     } catch (JSONException e) {
                         Toast.makeText(Registrarse.this, "Error al procesar la respuesta del servidor", Toast.LENGTH_SHORT).show();
                     }
-                } else {
-                    Toast.makeText(Registrarse.this, "Ocurrió un error inesperado", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-                Toast.makeText(Registrarse.this, "Error en la conexión: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(Registrarse.this, "Error en la conexión al servidor: " + error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
