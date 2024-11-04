@@ -49,7 +49,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void verificarDatos(String userEmail, String userPass) {
-        String url = "https://apployment.online/public/api/users";
+        String url = "https://apployment.online/public/api/login";
         RequestParams params = new RequestParams();
         params.put("email", userEmail);
         params.put("password", userPass);
@@ -62,21 +62,23 @@ public class LoginActivity extends AppCompatActivity {
                     String respuesta = new String(responseBody);
                     try {
                         JSONObject jsonResponse = new JSONObject(respuesta);
-                        if (jsonResponse.has("token")&& jsonResponse.has("role")) {
+                        if (jsonResponse.getBoolean("success")) {
                             String token = jsonResponse.getString("token");
                             String role = jsonResponse.getString("role");
-                            String userName = jsonResponse.getString("user_name");
 
-                            MostrarMensaje("Bienvenido " + userName);
+                            MostrarMensaje("Bienvenido " );
 
-                            if (role.equals("trabajador")) {
-                                Intent intent = new Intent(LoginActivity.this, TrabajadoresActivity.class);
+                            if (role.equals("worker")) {
+                                Intent intent = new Intent(LoginActivity.this, prelogin.class);
                                 intent.putExtra("token", token);
                                 startActivity(intent);
-                            } else if (role.equals("usuario")) {
-                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            } else if (role.equals("user")) {
+                                Intent intent = new Intent(LoginActivity.this, prelogin.class);
                                 intent.putExtra("token", token);
                                 startActivity(intent);
+                            }
+                            else{
+                                Toast.makeText(LoginActivity.this, "BIENVENIDO" + role, Toast.LENGTH_SHORT).show();
                             }
                         } else {
                             MostrarMensaje("Error en el inicio de sesión");

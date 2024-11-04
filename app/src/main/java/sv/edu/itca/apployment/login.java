@@ -1,16 +1,14 @@
 package sv.edu.itca.apployment;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
-import android.view.PixelCopy;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.fragment.app.Fragment;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -117,7 +115,7 @@ public class login extends Fragment {
                     String respuesta = new String(responseBody);
                     try{
                         JSONObject jsonResponse = new JSONObject(respuesta);
-                        if(jsonResponse.has("token")){
+                        if(jsonResponse.getBoolean("success")){
                             String token = jsonResponse.getString("token");
                             String role = jsonResponse.getString("role");
                             String userName = jsonResponse.getString("user_name");

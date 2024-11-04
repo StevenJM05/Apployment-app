@@ -53,7 +53,7 @@ public class Registrarse extends AppCompatActivity {
         confirmPassword = etConfirmPassword_regis.getText().toString().trim();
         if (!name.isEmpty() && !email.isEmpty() && !password.isEmpty() && !confirmPassword.isEmpty()) {
             if (password.equals(confirmPassword)) {
-                Registrarusuario(name, email, password);
+                Registrarusuario(name, email, password,confirmPassword);
             } else {
                 Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
             }
@@ -62,13 +62,14 @@ public class Registrarse extends AppCompatActivity {
         }
     }
 
-    private void Registrarusuario(String name, String email, String password) {
-        int rol = 1; // Puedes ajustar este valor según tu lógica
-        String url = "https://apployment.online/public/api/users";
+    private void Registrarusuario(String name, String email, String password, String confirmPassword) {
+        int rol = 2; // Puedes ajustar este valor según tu lógica
+        String url = "https://apployment.online/public/api/register";
         RequestParams params = new RequestParams();
         params.put("name", name);
         params.put("email", email);
         params.put("password", password);
+        params.put("password_confirmation", confirmPassword);
         params.put("role_id", rol);
 
         AsyncHttpClient client = new AsyncHttpClient();
@@ -81,9 +82,8 @@ public class Registrarse extends AppCompatActivity {
                         JSONObject jsonResponse = new JSONObject(respuesta);
 
                         if (jsonResponse.getBoolean("success")) {
-                            JSONObject dataObject = jsonResponse.getJSONObject("data");
-                            String userName = dataObject.getString("name");
-                            Toast.makeText(Registrarse.this, "Registro completado. Bienvenido " + userName, Toast.LENGTH_SHORT).show();
+                            String role = jsonResponse.getString("role");
+                            Toast.makeText(Registrarse.this, "Registro completado. Bienvenido " + role, Toast.LENGTH_SHORT).show();
 
                             // Redirigir a la pantalla de inicio de sesión
                             Intent ini = new Intent(Registrarse.this, prelogin.class);
