@@ -86,7 +86,7 @@ public class Registrarse extends AppCompatActivity {
                             Toast.makeText(Registrarse.this, "Registro completado. Bienvenido " + userName, Toast.LENGTH_SHORT).show();
 
                             // Redirigir a la pantalla de inicio de sesión
-                            Intent ini = new Intent(Registrarse.this, MainActivity.class);
+                            Intent ini = new Intent(Registrarse.this, WorkersFragment.class);
                             startActivity(ini);
                         } else {
                             Toast.makeText(Registrarse.this, "No se pudo registrar", Toast.LENGTH_SHORT).show();
