@@ -14,35 +14,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Apployment"
         tools:targetApi="31">
-
+        <activity
+            android:name=".prelogin"
+            android:exported="false" />
         <activity
             android:name=".SpScreen"
-            android:exported="true">
-
-
-        </activity>
-
-
+            android:exported="true"></activity>
         <activity
             android:name=".TrabajadoresActivity"
-            android:exported="false"
-
-            >
-
-
-        </activity>
-
-
-
+            android:exported="false"></activity>
         <activity
             android:name=".LoginActivity"
-            android:exported="false"
-            >
-
-        </activity>
-
-
-
+            android:exported="false"></activity>
         <activity
             android:name=".Perfil"
             android:exported="false" />
@@ -51,6 +34,7 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -70,14 +54,10 @@
         <activity
             android:name=".NuevaActividad"
             android:exported="true" />
-            -->
-
-
+        -->
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
     </application>
 
 </manifest>
