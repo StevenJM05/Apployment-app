@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -16,11 +15,9 @@ import androidx.core.view.WindowInsetsCompat;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
-import com.loopj.android.http.ResponseHandlerInterface;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import cz.msebera.android.httpclient.Header;
 
 public class Registrarse extends AppCompatActivity {
@@ -39,7 +36,7 @@ public class Registrarse extends AppCompatActivity {
             return insets;
         });
         etName = findViewById(R.id.etName);
-        etEmail_regis= findViewById(R.id.etEmail_regis);
+        etEmail_regis = findViewById(R.id.etEmail_regis);
         etPassword_regis = findViewById(R.id.etPassword_regis);
         etConfirmPassword_regis = findViewById(R.id.etConfirmPassword_regis);
     }
@@ -54,22 +51,19 @@ public class Registrarse extends AppCompatActivity {
         email = etEmail_regis.getText().toString().trim();
         password = etPassword_regis.getText().toString().trim();
         confirmPassword = etConfirmPassword_regis.getText().toString().trim();
-        if(!name.isEmpty() && !email.isEmpty() && !password.isEmpty() && !confirmPassword.isEmpty()){
-            if (password.equals(confirmPassword)){
+        if (!name.isEmpty() && !email.isEmpty() && !password.isEmpty() && !confirmPassword.isEmpty()) {
+            if (password.equals(confirmPassword)) {
                 Registrarusuario(name, email, password);
-            }
-            else {
+            } else {
                 Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
             }
+        } else {
+            Toast.makeText(this, "Campo vacío", Toast.LENGTH_SHORT).show();
         }
-        else{
-            Toast.makeText(this, "Campo vacio", Toast.LENGTH_SHORT).show();
-        }
-
     }
 
     private void Registrarusuario(String name, String email, String password) {
-        int rol = 1;
+        int rol = 1; // Puedes ajustar este valor según tu lógica
         String url = "https://apployment.online/public/api/users";
         RequestParams params = new RequestParams();
         params.put("name", name);
@@ -81,22 +75,27 @@ public class Registrarse extends AppCompatActivity {
         client.post(url, params, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                if(statusCode == 200){
-                    String respuesta = new String(responseBody);
+                if (statusCode == 201) { // Cambiado a 201 para creación exitosa
                     try {
+                        String respuesta = new String(responseBody);
                         JSONObject jsonResponse = new JSONObject(respuesta);
-                        if (jsonResponse.getBoolean("name")){
-                            String userName = jsonResponse.getString("name");
+
+                        if (jsonResponse.getBoolean("success")) {
+                            JSONObject dataObject = jsonResponse.getJSONObject("data");
+                            String userName = dataObject.getString("name");
                             Toast.makeText(Registrarse.this, "Registro completado. Bienvenido " + userName, Toast.LENGTH_SHORT).show();
-                        }
-                        else{
+
+                            // Redirigir a la pantalla de inicio de sesión
+                            Intent log = new Intent(Registrarse.this, LoginActivity.class);
+                            startActivity(log);
+                        } else {
                             Toast.makeText(Registrarse.this, "No se pudo registrar", Toast.LENGTH_SHORT).show();
                         }
                     } catch (JSONException e) {
-                        Toast.makeText(Registrarse.this, "Error del servidor", Toast.LENGTH_SHORT).show();                    }
-                }
-                else{
-                    Toast.makeText(Registrarse.this, "ops algo ocurrio", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Registrarse.this, "Error al procesar la respuesta del servidor", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(Registrarse.this, "Ocurrió un error inesperado", Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -105,6 +104,5 @@ public class Registrarse extends AppCompatActivity {
                 Toast.makeText(Registrarse.this, "Error en la conexión: " + error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-
     }
 }
