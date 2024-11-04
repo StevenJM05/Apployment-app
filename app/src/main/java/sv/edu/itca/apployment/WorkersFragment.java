@@ -1,28 +1,11 @@
 package sv.edu.itca.apployment;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.cardview.widget.CardView;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
-import sv.edu.itca.apployment.adapter.WorkerAdapter;
-import sv.edu.itca.apployment.modelos.Worker;
+import androidx.fragment.app.Fragment;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -30,10 +13,6 @@ import sv.edu.itca.apployment.modelos.Worker;
  * create an instance of this fragment.
  */
 public class WorkersFragment extends Fragment {
-    private RecyclerView recyclerViewWorkers;
-    private WorkerAdapter workerAdapter;
-    private List<Worker> workerList = new ArrayList<>();
-
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -78,33 +57,7 @@ public class WorkersFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_workers, container, false);
-
-        recyclerViewWorkers = view.findViewById(R.id.recyclerViewWorkers);
-        recyclerViewWorkers.setLayoutManager(new LinearLayoutManager(getContext()));
-
-        workerAdapter = new WorkerAdapter((List<Worker>) getContext(), (Context) workerList);
-        recyclerViewWorkers.setAdapter(workerAdapter);
-
-        loadWorkers();
-
-
-        return view;
+        return inflater.inflate(R.layout.fragment_workers, container, false);
     }
-
-    private void loadWorkers() {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.1.59/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-
-
-    }
-
-
 }
-
-
