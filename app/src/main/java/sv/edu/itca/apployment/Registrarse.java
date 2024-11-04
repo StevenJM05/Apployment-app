@@ -70,7 +70,7 @@ public class Registrarse extends AppCompatActivity {
 
     private void Registrarusuario(String name, String email, String password) {
         int rol = 1;
-        String url = "http://192.168.43.22/api/users";
+        String url = "https://apployment.online/public/api/users";
         RequestParams params = new RequestParams();
         params.put("name", name);
         params.put("email", email);
@@ -85,7 +85,7 @@ public class Registrarse extends AppCompatActivity {
                     String respuesta = new String(responseBody);
                     try {
                         JSONObject jsonResponse = new JSONObject(respuesta);
-                        if (jsonResponse.getBoolean("data")){
+                        if (jsonResponse.getBoolean("name")){
                             String userName = jsonResponse.getString("name");
                             Toast.makeText(Registrarse.this, "Registro completado. Bienvenido " + userName, Toast.LENGTH_SHORT).show();
                         }
