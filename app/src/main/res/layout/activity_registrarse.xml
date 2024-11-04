@@ -48,13 +48,13 @@
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="109dp"
-                android:layout_height="111dp"
+                android:layout_width="250dp"
+                android:layout_height="140dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:clipToOutline="true"
                 android:contentDescription="@string/perfil"
-                app:srcCompat="@drawable/icon_person"
+                app:srcCompat="@drawable/logoapployment"
                 tools:ignore="UnusedAttribute,ImageContrastCheck" />
 
 
