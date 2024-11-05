@@ -1,29 +1,35 @@
 package sv.edu.itca.apployment.adapter;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
+import sv.edu.itca.apployment.R;
 
 public class WorkersAdapter extends RecyclerView.Adapter<WorkersAdapter.WorkerViewHolder> {
-
     private List<String> workersList;
+    private Context context;
 
-    public WorkersAdapter(List<String> workersList) {
+    public WorkersAdapter(List<String> workersList, Context context) {
         this.workersList = workersList;
+        this.context = context;
     }
 
+    @NonNull
     @Override
-    public WorkerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(android.R.layout.simple_list_item_1, parent, false);
+    public WorkerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(context).inflate(R.layout.item_worker, parent, false);
         return new WorkerViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(WorkerViewHolder holder, int position) {
-        holder.bind(workersList.get(position));
+    public void onBindViewHolder(@NonNull WorkerViewHolder holder, int position) {
+        String workerName = workersList.get(position);
+        holder.textViewWorkerName.setText(workerName);
     }
 
     @Override
@@ -32,15 +38,11 @@ public class WorkersAdapter extends RecyclerView.Adapter<WorkersAdapter.WorkerVi
     }
 
     public static class WorkerViewHolder extends RecyclerView.ViewHolder {
-        private TextView textView;
+        TextView textViewWorkerName;
 
-        public WorkerViewHolder(View itemView) {
+        public WorkerViewHolder(@NonNull View itemView) {
             super(itemView);
-            textView = itemView.findViewById(android.R.id.text1);
-        }
-
-        public void bind(String workerName) {
-            textView.setText(workerName);
+            textViewWorkerName = itemView.findViewById(R.id.textViewWorkerName);
         }
     }
 }
