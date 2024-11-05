@@ -245,14 +245,12 @@
             android:layout_marginBottom="16dp">
 
             <!-- Tags de Habilidades -->
-            <TextView
-                android:layout_width="wrap_content"
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/skills_recycler_view"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Creativo"
-                android:background="@drawable/tag_background"
-                android:padding="8dp"
-                android:textColor="@android:color/black"
-                android:layout_marginEnd="8dp" />
+                android:layout_marginTop="16dp"/>
         </LinearLayout>
 
 

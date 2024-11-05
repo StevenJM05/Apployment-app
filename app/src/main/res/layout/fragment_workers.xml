@@ -1,273 +1,167 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+    android:fillViewport="true"
     tools:context=".WorkersFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="end"
-        android:padding="10dp">
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/nombre_app"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:fontFamily="sans-serif-medium"
-            android:text="Apployment"
-            android:textColor="@color/white"
-            android:textSize="27sp" />
-
-        <ImageView
-            android:id="@+id/icononotificaciones"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_marginEnd="-76dp"
-            android:src="@drawable/notificaciones"
-            app:tint="@color/white"/>
-
-        <ImageView
-            android:id="@+id/imagenperfil"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_marginEnd="-47dp"
-            android:src="@drawable/perfil"
-            app:tint="@color/white"
-          />
-    </LinearLayout>
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Categorías"
-        android:textSize="20sp"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:layout_marginTop="15dp"/>
-
-    <HorizontalScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
+        <!-- Header -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:gravity="end"
+            android:padding="10dp">
 
-            <FrameLayout
-                android:id="@+id/fragment_container"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+            <TextView
+                android:id="@+id/nombre_app"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-medium"
+                android:text="Apployment"
+                android:textColor="@color/white"
+                android:textSize="27sp" />
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/carta1"
-                android:layout_width="140dp"
-                android:layout_height="50dp"
-                android:layout_margin="5dp"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="10dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackground"
-                app:cardBackgroundColor="@color/moradoclaro">
+            <ImageView
+                android:id="@+id/icononotificaciones"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginEnd="-76dp"
+                android:src="@drawable/notificaciones"
+                app:tint="@color/white" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/imagenperfil"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginEnd="-47dp"
+                android:src="@drawable/perfil"
+                app:tint="@color/white" />
+        </LinearLayout>
 
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:layout_width="92dp"
-                        android:layout_height="32dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginStart="-20dp"
-                        android:src="@drawable/img" />
+        <!-- Sección de Categorías -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Categorías"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:layout_marginTop="15dp" />
 
-                    <TextView
-                        android:layout_width="98dp"
-                        android:layout_height="20dp"
-                        android:layout_marginTop="4dp"
-                        android:layout_gravity="center"
-                        android:layout_marginStart="-22dp"
-                        android:text="Electricistas"
-                        android:textColor="@color/black"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-                android:id="@+id/carta2"
-                android:layout_width="140dp"
-                android:layout_height="50dp"
-                android:layout_margin="5dp"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="10dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackground"
-                app:cardBackgroundColor="@color/moradoclaro">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:layout_width="92dp"
-                        android:layout_height="32dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginStart="-20dp"
-                        android:src="@drawable/img" />
-
-                    <TextView
-                        android:layout_width="98dp"
-                        android:layout_height="20dp"
-                        android:layout_marginTop="4dp"
-                        android:layout_gravity="center"
-                        android:layout_marginStart="-22dp"
-                        android:text="Carpinteros"
-                        android:textColor="@color/black"
-                        android:textSize="14sp"
-                        android:textStyle="bold"
-                     />
-
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-                android:id="@+id/carta3"
-                android:layout_width="140dp"
-                android:layout_height="50dp"
-                android:layout_margin="5dp"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="10dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackground"
-                app:cardBackgroundColor="@color/moradoclaro">
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
             <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:layout_width="92dp"
-                        android:layout_height="32dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginStart="-20dp"
-                        android:src="@drawable/img" />
+                <!-- Tarjetas de categorías -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/carta1"
+                    android:layout_width="140dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="5dp"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="10dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    app:cardBackgroundColor="@color/moradoclaro">
 
-                    <TextView
-                        android:layout_width="98dp"
-                        android:layout_height="20dp"
-                        android:layout_marginTop="4dp"
-                        android:layout_gravity="center"
-                        android:layout_marginStart="-22dp"
-                        android:text="Mecánicos"
-                        android:textColor="@color/black"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
 
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-                android:id="@+id/carta4"
-                android:layout_width="140dp"
-                android:layout_height="50dp"
-                android:layout_margin="5dp"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="10dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackground"
-                app:cardBackgroundColor="@color/moradoclaro">
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="10dp"
+                            android:src="@drawable/img" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="98dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="8dp"
+                            android:text="Electricistas"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
 
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:layout_width="92dp"
-                        android:layout_height="32dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginStart="-20dp"
-                        android:src="@drawable/img" />
+                <!-- Agrega más tarjetas aquí siguiendo el mismo formato -->
+                <!-- Ejemplo de tarjeta repetida -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/carta2"
+                    android:layout_width="140dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="5dp"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="10dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    app:cardBackgroundColor="@color/moradoclaro">
 
-                    <TextView
-                        android:layout_width="98dp"
-                        android:layout_height="20dp"
-                        android:layout_marginTop="4dp"
-                        android:layout_gravity="center"
-                        android:layout_marginStart="-22dp"
-                        android:text="Pintores"
-                        android:textColor="@color/black"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
 
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-                android:id="@+id/carta5"
-                android:layout_width="140dp"
-                android:layout_height="50dp"
-                android:layout_margin="5dp"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="10dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackground"
-                app:cardBackgroundColor="@color/moradoclaro">
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="10dp"
+                            android:src="@drawable/img" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="98dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="8dp"
+                            android:text="Carpinteros"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+                <!-- Repite para más categorías -->
 
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:layout_width="92dp"
-                        android:layout_height="32dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginStart="-20dp"
-                        android:src="@drawable/img" />
+            </LinearLayout>
+        </HorizontalScrollView>
 
-                    <TextView
-                        android:layout_width="98dp"
-                        android:layout_height="20dp"
-                        android:layout_marginTop="4dp"
-                        android:layout_gravity="center"
-                        android:layout_marginStart="-22dp"
-                        android:text="Albañiles"
-                        android:textSize="14sp"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
+        <!-- Título para la lista de profesionales -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Profesionales"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginTop="15dp" />
 
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-        </LinearLayout>
-    </HorizontalScrollView>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Profesionales"
-        android:textSize="20sp"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        android:layout_marginTop="15dp"/>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewWorkers"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="10dp"/>
-</LinearLayout>
+        <!-- RecyclerView -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewWorkers"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:padding="10dp" />
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
