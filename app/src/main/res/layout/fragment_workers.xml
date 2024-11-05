@@ -5,9 +5,10 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context=".WorkersFragment">
+    tools:context=".WorkersFragment"
+    >
 
-    <!-- TODO: Update blank fragment layout -->
+    <!-- Header -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -39,11 +40,10 @@
             android:layout_height="30dp"
             android:layout_marginEnd="-47dp"
             android:src="@drawable/perfil"
-            app:tint="@color/white"
-          />
+            app:tint="@color/white"/>
     </LinearLayout>
 
-
+    <!-- Categorías horizontal -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -58,216 +58,30 @@
         android:layout_height="wrap_content">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <FrameLayout
-                android:id="@+id/fragment_container"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/carta1"
-                android:layout_width="140dp"
-                android:layout_height="50dp"
-                android:layout_margin="5dp"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="10dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackground"
-                app:cardBackgroundColor="@color/moradoclaro">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:layout_width="92dp"
-                        android:layout_height="32dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginStart="-20dp"
-                        android:src="@drawable/img" />
-
-                    <TextView
-                        android:layout_width="98dp"
-                        android:layout_height="20dp"
-                        android:layout_marginTop="4dp"
-                        android:layout_gravity="center"
-                        android:layout_marginStart="-22dp"
-                        android:text="Electricistas"
-                        android:textColor="@color/black"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-                android:id="@+id/carta2"
-                android:layout_width="140dp"
-                android:layout_height="50dp"
-                android:layout_margin="5dp"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="10dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackground"
-                app:cardBackgroundColor="@color/moradoclaro">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:layout_width="92dp"
-                        android:layout_height="32dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginStart="-20dp"
-                        android:src="@drawable/img" />
-
-                    <TextView
-                        android:layout_width="98dp"
-                        android:layout_height="20dp"
-                        android:layout_marginTop="4dp"
-                        android:layout_gravity="center"
-                        android:layout_marginStart="-22dp"
-                        android:text="Carpinteros"
-                        android:textColor="@color/black"
-                        android:textSize="14sp"
-                        android:textStyle="bold"
-                     />
-
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-                android:id="@+id/carta3"
-                android:layout_width="140dp"
-                android:layout_height="50dp"
-                android:layout_margin="5dp"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="10dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackground"
-                app:cardBackgroundColor="@color/moradoclaro">
-
-            <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:layout_width="92dp"
-                        android:layout_height="32dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginStart="-20dp"
-                        android:src="@drawable/img" />
-
-                    <TextView
-                        android:layout_width="98dp"
-                        android:layout_height="20dp"
-                        android:layout_marginTop="4dp"
-                        android:layout_gravity="center"
-                        android:layout_marginStart="-22dp"
-                        android:text="Mecánicos"
-                        android:textColor="@color/black"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-                android:id="@+id/carta4"
-                android:layout_width="140dp"
-                android:layout_height="50dp"
-                android:layout_margin="5dp"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="10dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackground"
-                app:cardBackgroundColor="@color/moradoclaro">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:layout_width="92dp"
-                        android:layout_height="32dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginStart="-20dp"
-                        android:src="@drawable/img" />
-
-                    <TextView
-                        android:layout_width="98dp"
-                        android:layout_height="20dp"
-                        android:layout_marginTop="4dp"
-                        android:layout_gravity="center"
-                        android:layout_marginStart="-22dp"
-                        android:text="Pintores"
-                        android:textColor="@color/black"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-                android:id="@+id/carta5"
-                android:layout_width="140dp"
-                android:layout_height="50dp"
-                android:layout_margin="5dp"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="10dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackground"
-                app:cardBackgroundColor="@color/moradoclaro">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:layout_width="92dp"
-                        android:layout_height="32dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginStart="-20dp"
-                        android:src="@drawable/img" />
-
-                    <TextView
-                        android:layout_width="98dp"
-                        android:layout_height="20dp"
-                        android:layout_marginTop="4dp"
-                        android:layout_gravity="center"
-                        android:layout_marginStart="-22dp"
-                        android:text="Albañiles"
-                        android:textSize="14sp"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
+            <!-- Tarjetas de categorías (las que ya tenías) -->
+            <!-- Aquí puedes añadir más tarjetas según sea necesario -->
         </LinearLayout>
     </HorizontalScrollView>
+
+    <!-- Título para la lista de perfiles -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Profesionales"
+        android:text="Perfiles"
         android:textSize="20sp"
         android:textColor="@color/black"
         android:textStyle="bold"
         android:layout_marginTop="15dp"/>
 
+    <!-- RecyclerView para mostrar perfiles -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewWorkers"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="10dp"/>
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        tools:listitem="@layout/item_worker" />
 </LinearLayout>
