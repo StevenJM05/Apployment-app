@@ -15,11 +15,7 @@
         android:theme="@style/Theme.Apployment"
         tools:targetApi="31">
         <activity
-<<<<<<< HEAD
             android:name=".Configuracion"
-=======
-            android:name=".OptionsAccount"
->>>>>>> a57633a3e47b987fff1e1bc08b394fc339757035
             android:exported="false" />
         <activity
             android:name=".prelogin"
