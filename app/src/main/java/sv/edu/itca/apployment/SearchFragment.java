@@ -1,23 +1,28 @@
 package sv.edu.itca.apployment;
-import sv.edu.itca.apployment.adapter.WorkersAdapterr;
+
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
-import android.widget.SearchView;
 import android.widget.Toast;
+
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import java.util.List;
-import cz.msebera.android.httpclient.Header;
+
 import java.util.ArrayList;
+import java.util.List;
+
+import cz.msebera.android.httpclient.Header;
+import sv.edu.itca.apployment.adapter.ProfessionAdapter;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -38,7 +43,7 @@ public class SearchFragment extends Fragment {
     private String profesionname="";
     //private ArrayAdapter<String> adapter;
     private List<String> profesionList;
-    private WorkersAdapterr adapter;
+    private ProfessionAdapter adapter;
     public SearchFragment() {
         // Required empty public constructor
     }
@@ -77,12 +82,13 @@ public class SearchFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_search, container, false);
-        RecyclerView recyclerView=view.findViewById(R.id.searchView);
+        RecyclerView recyclerView = view.findViewById(R.id.searchView); // Asegúrate de que este ID coincida con tu XML
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        adapter=new WorkersAdapterr(profesionList);
+        adapter = new ProfessionAdapter(profesionList);
+        recyclerView.setAdapter(adapter);
         return view;
-
     }
+
 
 
 
@@ -124,7 +130,7 @@ public class SearchFragment extends Fragment {
 
             @Override
             public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-
+                mostrarMensaje("Error al realizar la solicitud: " + error.getMessage());
             }
         });
     }
