@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/main"
+    tools:context=".Configuracion">
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+    </FrameLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="413dp"
+        android:layout_height="214dp"
+        android:background="#27085D"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints,VisualLintBounds">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="0dp"
+            android:layout_height="113dp"
+            android:layout_marginTop="37dp"
+            android:layout_marginEnd="19dp"
+            android:layout_marginBottom="64dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/textView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/usuario"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="198dp"
+            android:layout_height="67dp"
+            android:layout_marginStart="19dp"
+            android:layout_marginTop="75dp"
+            android:layout_marginEnd="31dp"
+            android:layout_marginBottom="72dp"
+            android:text="Hola Usuario!"
+            android:textColor="@color/white"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="HardcodedText,SpUsage" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="348dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="57dp"
+        android:layout_marginEnd="32dp"
+        android:backgroundTint="@color/white"
+        android:drawableLeft="@drawable/perfil123"
+        android:text=" Mi Cuenta"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        tools:ignore="HardcodedText,MissingConstraints,RtlHardcoded,SpUsage,TextSizeCheck" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="348dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="31dp"
+        android:backgroundTint="@color/white"
+        android:drawableLeft="@drawable/quien"
+        android:shadowColor="#474545"
+        android:text=" ¿Quienes Somos?"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button2"
+        tools:ignore="HardcodedText,MissingConstraints,RtlHardcoded,SpUsage,VisualLintButtonSize,TextSizeCheck" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="348dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="32dp"
+        android:backgroundTint="@color/white"
+        android:drawableLeft="@drawable/acerca"
+        android:shadowColor="#474545"
+        android:text=" Acerca de Nosotros"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:onClick="acerca"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button"
+        tools:ignore="HardcodedText,MissingConstraints,RtlHardcoded,SpUsage,TextSizeCheck,VisualLintButtonSize" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="348dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="31dp"
+        android:backgroundTint="@color/white"
+        android:drawableLeft="@drawable/localizacion"
+        android:shadowColor="#474545"
+        android:textColor="@color/black"
+        android:text=" Localizacion"
+        android:textAlignment="textStart"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button1"
+        tools:ignore="HardcodedText,MissingConstraints,RtlHardcoded,SpUsage,TextSizeCheck,VisualLintButtonSize" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="348dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="31dp"
+        android:backgroundTint="@color/white"
+        android:drawableLeft="@drawable/politicas"
+        android:onClick="politicas"
+        android:shadowColor="#474545"
+        android:text=" Politicas De Privacidad"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button3"
+        tools:ignore="HardcodedText,MissingConstraints,VisualLintButtonSize,TextSizeCheck" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

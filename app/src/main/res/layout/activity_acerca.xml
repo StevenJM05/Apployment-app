@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".acerca"
+    android:background="#190838">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="142dp"
+        android:layout_height="133dp"
+        android:layout_marginTop="44dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:text="Acerca de Nosotros"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/textView2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="Somos un equipo de estudiantes apasionados por la tecnología y el desarrollo de soluciones innovadoras para problemas cotidianos. Inspirados en la necesidad de conectar personas con profesionales confiables para realizar trabajos a domicilio, hemos creado esta plataforma con el objetivo de facilitar el acceso a servicios de calidad.\n\nA pesar de estar en etapa de formación académica, ponemos en práctica nuestros conocimientos y creatividad para brindar una experiencia intuitiva, segura y efectiva. Cada detalle de esta aplicación ha sido diseñado con dedicación, buscando hacer que la búsqueda y contratación de oficios sea rápida y confiable.\n\nNos entusiasma poder aportar a la comunidad y aprender en el proceso, escuchando las necesidades de los usuarios para mejorar constantemente nuestro servicio.\n\nCreemos firmemente que la tecnología es una herramienta poderosa para mejorar la vida de las personas, y es por eso que nos esforzamos por mantenernos al día con las últimas tendencias y mejores prácticas. Trabajamos en equipo, valorando las ideas y contribuciones de cada miembro, lo que nos permite crecer tanto profesional como personalmente.\n\nNuestro compromiso no solo es con el desarrollo técnico, sino también con la creación de un espacio inclusivo donde la confianza y la transparencia sean pilares fundamentales. Seguimos aprendiendo y evolucionando, para que cada actualización y mejora de nuestra aplicación refleje nuestra pasión y dedicación."
+            android:textAlignment="viewStart"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="italic" />
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

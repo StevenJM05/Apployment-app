@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#200552"
+    tools:context=".politicas">
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="149dp"
+        android:layout_height="105dp"
+        android:layout_marginStart="118dp"
+        app:layout_goneMarginBottom="25dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="144dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Políticas de Privacidad"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/textView_policies"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:text="1. Recopilación de Información Personal\n\nAl utilizar nuestra app, recopilamos información personal como el nombre, número de teléfono, dirección de correo electrónico y ubicación para facilitar la conexión entre usuarios y profesionales. Esta información es esencial para brindar un servicio seguro y personalizado.\n\n2. Uso de la Información\n\nLa información recopilada se utiliza para:\n\n• Verificar la identidad de los usuarios y profesionales.\n• Facilitar la conexión entre usuarios y profesionales.\n• Mejorar la calidad de los servicios mediante análisis de uso y retroalimentación.\n• Enviar notificaciones relevantes sobre el uso de la app, actualizaciones o cambios en los términos y políticas.\n\n3. Compartir Información con Terceros\n\nNo compartimos tu información personal con terceros sin tu consentimiento, excepto en las siguientes circunstancias:\n• Cuando sea requerido por la ley.\n• Para proteger los derechos, propiedad o seguridad de los usuarios de la app.\n• Para colaborar con proveedores de servicios que nos ayuden a mejorar la plataforma, siempre bajo acuerdos que protejan la confidencialidad de los datos.\n\n4. Seguridad de la Información\n\nImplementamos medidas de seguridad para proteger tu información personal contra el acceso no autorizado, la alteración o divulgación indebida. Sin embargo, no podemos garantizar la seguridad total de la información transmitida a través de internet.\n\n5. Acceso y Control sobre tu Información\n\nComo usuario, puedes acceder y actualizar tu información en cualquier momento desde la app. También tienes derecho a solicitar la eliminación de tus datos, aunque esto puede afectar tu uso de ciertos servicios de la plataforma.\n\n6. Retención de Datos\n\nRetenemos tu información personal mientras tengas una cuenta activa en nuestra app. Si decides eliminar tu cuenta, tu información será eliminada de nuestros registros salvo en los casos en los que la ley requiera su retención.\n\n7. Cambios en las Políticas de Privacidad\n\nNos reservamos el derecho de actualizar estas Políticas de Privacidad en cualquier momento. Notificaremos a los usuarios mediante la app sobre cualquier cambio significativo, y su uso continuado de la app constituye la aceptación de las políticas revisadas.\n\n8. Contacto\n\nSi tienes alguna pregunta sobre nuestras Políticas de Privacidad o deseas ejercer algún derecho relacionado con tus datos personales, puedes contactarnos a través de nuestro correo electrónico apployment@gmail.com.\n\n\n\"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="italic"
+            />
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
