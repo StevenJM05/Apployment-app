@@ -3,6 +3,7 @@ package sv.edu.itca.apployment;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,7 +20,14 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import cz.msebera.android.httpclient.Header;
+import sv.edu.itca.apployment.adapter.SkillAdapter;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -30,6 +38,11 @@ public class ProfileFragment extends Fragment {
 
     private TextView nameTextView, professionTextView, locationTextView, genderTextView, ageTextView, emailTextView, phoneTextView, addressTextView;
     private ImageView profileImageView;
+
+    // Agrega esto a tus variables de instancia
+    private RecyclerView skillsRecyclerView;
+    private SkillAdapter skillAdapter;
+    private List<String> skillList = new ArrayList<>();
 
 
     // TODO: Rename parameter arguments, choose names that match
@@ -76,6 +89,11 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
+        // Inicializa el RecyclerView
+        skillsRecyclerView = view.findViewById(R.id.skills_recycler_view);
+        skillsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        skillAdapter = new SkillAdapter(skillList);
+        skillsRecyclerView.setAdapter(skillAdapter);
         // Referencias a las vistas
         nameTextView = view.findViewById(R.id.profile_name);
         professionTextView = view.findViewById(R.id.profile_profession);
@@ -126,6 +144,16 @@ public class ProfileFragment extends Fragment {
                     phoneTextView.setText(phone);
                     addressTextView.setText(address);
                     Picasso.get().load("https://apployment.online/public/" + profileImage).into(profileImageView);
+
+                    // Procesa y muestra las habilidades
+                    JSONArray skillsArray = response.getJSONArray("skills");
+                    skillList.clear();
+                    for (int i = 0; i < skillsArray.length(); i++) {
+                        JSONObject skillObject = skillsArray.getJSONObject(i);
+                        String skillName = skillObject.getString("name");
+                        skillList.add(skillName);
+                    }
+                    skillAdapter.notifyDataSetChanged();
                 } catch (JSONException e) {
                     throw new RuntimeException(e);
                 }
