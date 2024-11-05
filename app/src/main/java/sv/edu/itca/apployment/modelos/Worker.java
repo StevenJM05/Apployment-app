@@ -24,6 +24,6 @@ public class Worker {
     }
 
     public String getPhotoUrl() {
-        return "http://192.168.56.1/storage/" + photo;
+        return "http://192.168.1.59/storage/" + photo;
     }
 }
