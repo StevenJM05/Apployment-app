@@ -18,18 +18,42 @@ import java.util.List;
 import cz.msebera.android.httpclient.Header;
 import sv.edu.itca.apployment.adapter.WorkersAdapter;
 
-public class WorkersFragment extends Fragment {
-    private List<String> workersList;
+public class WorkersFragment extends Fragment implements WorkersAdapter.OnWorkerClickListener{
+    private List<String> workersList;  // Lista para nombres completos
+    private List<String> workersIds;   // Lista para IDs de trabajadores
     private WorkersAdapter adapter;
 
     public WorkersFragment() {
-        // Required empty public constructor
+        // Constructor público vacío requerido
+    }
+
+    @Override
+    public void onWorkerClick(int workerId) {
+        ProfileFragment profileFragment = ProfileFragment.newInstance(workerId);
+
+        getActivity().getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, profileFragment)
+                .addToBackStack(null)
+                .commit();
+    }
+
+    private void openWorkerDetailFragment(int workerId) {
+        ProfileFragment detailFragment = new ProfileFragment();
+        Bundle args = new Bundle();
+        args.putInt("workerId", workerId);
+        detailFragment.setArguments(args);
+
+        getActivity().getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, detailFragment)
+                .addToBackStack(null)
+                .commit();
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         workersList = new ArrayList<>();
+        workersIds = new ArrayList<>();
         fetchWorkers();
     }
 
@@ -40,7 +64,9 @@ public class WorkersFragment extends Fragment {
         // Inicializar RecyclerView
         RecyclerView recyclerView = view.findViewById(R.id.recyclerViewWorkers);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        adapter = new WorkersAdapter(workersList, getContext());
+
+        // Inicializar el adaptador con ambas listas
+        adapter = new WorkersAdapter(workersList, workersIds, getContext(), this);
         recyclerView.setAdapter(adapter);
 
         return view;
@@ -56,14 +82,25 @@ public class WorkersFragment extends Fragment {
                     String respuesta = new String(responseBody);
                     try {
                         JSONArray jsonArray = new JSONArray(respuesta);
+
+                        // Limpiar listas antes de llenarlas
                         workersList.clear();
+                        workersIds.clear();
+
                         for (int i = 0; i < jsonArray.length(); i++) {
                             JSONObject worker = jsonArray.getJSONObject(i);
+
+                            // Obtener nombres completos
                             String names = worker.getString("names");
                             String lastName = worker.getString("last_name");
                             String fullName = names + " " + lastName;
                             workersList.add(fullName);
+
+                            // Obtener ID y agregar a la lista de IDs
+                            String id = worker.getString("id");
+                            workersIds.add(id);
                         }
+
                         adapter.notifyDataSetChanged();
                         mostrarMensaje("Datos recibidos con éxito");
                     } catch (JSONException e) {

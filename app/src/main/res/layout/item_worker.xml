@@ -20,7 +20,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginStart="10dp"
             android:layout_gravity="center|top"
-            android:src="@drawable/img" />
+            android:src="@drawable/user_avatar"/>
         <TextView
             android:id="@+id/textViewWorkerName"
             android:layout_width="wrap_content"
