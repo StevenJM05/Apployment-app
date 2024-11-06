@@ -138,30 +138,7 @@
             android:textColor="@android:color/black"
             android:layout_marginBottom="8dp"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="5dp"
-            android:background="@drawable/card_background">
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/usuario2"
-                android:contentDescription="usuario_icon"/>
-            <TextView
-                android:id="@+id/name_profile"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:text="Steven Alexis"/>
-            <TextView
-                android:id="@+id/last_name_profile"
-                android:text="Martinez Jimenez"
-                android:layout_marginLeft="15dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
+       
 
         <LinearLayout
             android:layout_width="match_parent"
