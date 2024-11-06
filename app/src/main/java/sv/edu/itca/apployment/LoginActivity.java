@@ -93,7 +93,7 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-                MostrarMensaje("Error en la conexión");
+                MostrarMensaje("Credenciales invalidas");
             }
         });
     }
