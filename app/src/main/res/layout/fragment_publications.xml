@@ -2,25 +2,62 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".PublicationsFragment">
 
-    <!-- Título para las publicaciones -->
-    <TextView
+    <!-- Contenedor principal con LinearLayout vertical -->
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Publicaciones"
-        android:textSize="18sp"
-        android:padding="10dp"
-        android:gravity="center"
-        android:background="?attr/colorPrimary"
-        android:textColor="@android:color/white" />
+        android:layout_height="match_parent">
 
-    <!-- RecyclerView para mostrar las publicaciones -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/publicationsView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="50dp"
-        android:padding="10dp" />
+        <!-- Parte superior con un LinearLayout horizontal para el botón -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
+            <!-- Botón para agregar una publicación -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="10dp"
+                android:elevation="4dp"
+                android:radius="8dp"
+                app:cardBackgroundColor="@color/moradoclaro"
+                >
+
+                <!-- Button dentro del CardView -->
+                <Button
+                    android:id="@+id/btn_add_publication"
+                    android:layout_width="118dp"
+                    android:layout_height="36dp"
+                    android:background="?attr/colorPrimary"
+                    android:text="Agregar Publicación"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp" />
+            </androidx.cardview.widget.CardView>
+
+
+        </LinearLayout>
+
+        <!-- Parte inferior con LinearLayout para el RecyclerView -->
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:padding="10dp">
+
+            <!-- RecyclerView para mostrar las publicaciones -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/publicationsView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+
+    </LinearLayout>
 
 </FrameLayout>

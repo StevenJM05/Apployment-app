@@ -24,25 +24,28 @@
             <ImageView
                 android:layout_width="35dp"
                 android:layout_height="35dp"
-                android:layout_marginEnd="8dp"
+                android:layout_marginEnd="4dp"
                 android:background="@drawable/circle_background"
                 android:scaleType="centerCrop"
                 android:src="@drawable/user_avatar"
                 tools:ignore="ContentDescription" />
 
             <TextView
+                android:id="@+id/tvusename"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/user_name"
                 android:textSize="16sp"
                 android:textStyle="bold" />
+
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/tvfecha"
+                android:layout_width="155dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="60dp"
                 android:text="@string/fecha"
-                android:textStyle="italic"
                 android:textSize="14sp"
-                android:layout_marginLeft="125dp"/>
+                android:textStyle="italic" />
         </LinearLayout>
 
         <androidx.viewpager2.widget.ViewPager2
@@ -55,20 +58,24 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:orientation="vertical">
+
             <TextView
+                android:id="@+id/tvdescriptiontittle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="@string/descripcion_de_la_publicacion"
-                android:textStyle="bold"
-                android:textSize="14sp"/>
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
             <TextView
+                android:id="@+id/tvdescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="11dp"
                 android:layout_marginTop="8dp"
                 android:text="@string/detalles_de_la_publicacion"
-                android:textSize="12sp"
-                android:layout_marginLeft="11dp"/>
+                android:textSize="12sp" />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

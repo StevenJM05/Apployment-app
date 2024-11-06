@@ -1,5 +1,6 @@
 package sv.edu.itca.apployment.adapter;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +13,7 @@ public class ProfessionAdapter extends RecyclerView.Adapter<ProfessionAdapter.Pr
     private List<String> professionList; // Mantiene la lista de Strings
 
     // Constructor que recibe la lista de Strings
-    public ProfessionAdapter(List<String> professionList) {
+    public ProfessionAdapter(Context context, List<String> professionList, List<String> publicationIdList, List<String> titulosList, List<String> descripcionesList, List<String> fechasList, List<String> usersnamesList) {
         this.professionList = professionList;
     }
 

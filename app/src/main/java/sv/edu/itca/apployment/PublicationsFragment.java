@@ -21,12 +21,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cz.msebera.android.httpclient.Header;
-import sv.edu.itca.apployment.adapter.ProfessionAdapter;
+import sv.edu.itca.apployment.adapter.PublicationAdapter;
 
-public class PublicationsFragment extends Fragment {
+public class PublicationsFragment extends Fragment implements PublicationAdapter.OnPublicationClickListener {
+
 
     private List<String> publicationList;
-    private ProfessionAdapter adapter;
+    private List<String> publicationIdList;
+    private List<String> titulosList;
+    private List<String> descripcionesList;
+    private List<String> fechasList;
+    private List<String> usersnamesList;
+
+    private PublicationAdapter adapter;
+
+    public void onPublicationClick(int publicationId) {
+        ProfileFragment profileFragment = ProfileFragment.newInstance(publicationId);
+
+        getActivity().getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, profileFragment)
+                .addToBackStack(null)
+                .commit();
+    }
 
     public PublicationsFragment() {
         // Constructor vacío requerido
@@ -36,6 +52,11 @@ public class PublicationsFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         publicationList = new ArrayList<>();
+        publicationIdList = new ArrayList<>();
+        titulosList = new ArrayList<>();
+        descripcionesList = new ArrayList<>();
+        fechasList = new ArrayList<>();
+        usersnamesList = new ArrayList<>();
         fetchPublications();
     }
 
@@ -44,10 +65,13 @@ public class PublicationsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_publications, container, false);
         RecyclerView recyclerView = view.findViewById(R.id.publicationsView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        adapter = new ProfessionAdapter(publicationList);
+
+        // Usa el PublicationAdapter y pasa la interfaz del fragmento
+        adapter = new PublicationAdapter(getContext(), publicationList, publicationIdList, titulosList, descripcionesList, fechasList, usersnamesList, this);
         recyclerView.setAdapter(adapter);
         return view;
     }
+
 
     private void fetchPublications() {
         String url = "https://apployment.online/public/api/publications";
@@ -61,6 +85,8 @@ public class PublicationsFragment extends Fragment {
                         Log.d("PublicationsFragment", "Respuesta JSON: " + responseString);
 
                         JSONObject jsonResponse = new JSONObject(responseString);
+                        publicationList.clear();
+                        publicationIdList.clear();
                         JSONArray dataArray = jsonResponse.getJSONArray("data");
 
                         for (int i = 0; i < dataArray.length(); i++) {
@@ -68,9 +94,22 @@ public class PublicationsFragment extends Fragment {
                             int id = publication.getInt("id");
                             String title = publication.getString("title");
                             String description = publication.getString("description");
+                            String date = publication.getString("date");
 
-                            String valor = id + " " + title + " " + description;
+                            JSONObject usuario = publication.getJSONObject("profile");
+                            String firstName = usuario.getString("names");
+                            String lastName = usuario.getString("last_name");
+                            String name = firstName + " " + lastName;
+
+                            publicationIdList.add(String.valueOf(id));
+                            titulosList.add((title));
+                            descripcionesList.add((description));
+                            fechasList.add((date));
+                            usersnamesList.add((name));
+
+                            String valor =id+" PUBLICACIÓN DE: " +name+ " "+ " TITULO: "+title+ " HECHA EL DIA: " +date;
                             publicationList.add(valor);
+
                         }
 
                         adapter.notifyDataSetChanged();
