@@ -1,12 +1,13 @@
 package sv.edu.itca.apployment;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -24,76 +25,54 @@ import java.util.List;
 import cz.msebera.android.httpclient.Header;
 import sv.edu.itca.apployment.adapter.ProfessionAdapter;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link SearchFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class SearchFragment extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-    private ListView listView;
-    private String profesionname="";
-    //private ArrayAdapter<String> adapter;
     private List<String> profesionList;
+    private List<String> filteredList; // Lista filtrada para mostrar coincidencias
     private ProfessionAdapter adapter;
-    public SearchFragment() {
-        // Required empty public constructor
-    }
+    private SearchView searchView;
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment SearchFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static SearchFragment newInstance(String param1, String param2) {
-        SearchFragment fragment = new SearchFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+    public SearchFragment() {
+        // Constructor público requerido
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
         profesionList = new ArrayList<>();
-        fetchProfesion();
+        filteredList = new ArrayList<>();
+        fetchAllProfesions(); // Cargar todos los registros al inicio
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_search, container, false);
-        RecyclerView recyclerView = view.findViewById(R.id.searchView); // Asegúrate de que este ID coincida con tu XML
+
+        RecyclerView recyclerView = view.findViewById(R.id.searchView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        adapter = new ProfessionAdapter(profesionList);
+        adapter = new ProfessionAdapter(filteredList); // Inicializar con la lista filtrada
         recyclerView.setAdapter(adapter);
+
+        searchView = view.findViewById(R.id.buscarProfesion);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                filterList(query);
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                filterList(newText);
+                return true;
+            }
+        });
+
         return view;
     }
 
-
-
-
-    private void fetchProfesion() {
-        String url = "https://apployment.online/public/api/worker-profiles?query="+profesionname;
+    private void fetchAllProfesions() {
+        String url = "https://apployment.online/public/api/worker-profiles";
         AsyncHttpClient client = new AsyncHttpClient();
         client.get(url, new AsyncHttpResponseHandler() {
             @Override
@@ -112,27 +91,46 @@ public class SearchFragment extends Fragment {
                             JSONArray professions = profesion.optJSONArray("professions");
                             String professionName = "";
                             if (professions != null && professions.length() > 0) {
-                                JSONObject profession = professions.getJSONObject(0);  // Tomamos el primer objeto del array
-                                professionName = profession.optString("name", "");  // Optamos por un valor vacío si no existe la clave
+                                JSONObject profession = professions.getJSONObject(0);
+                                professionName = profession.optString("name", "");
                             }
                             String fullNameWithProfession = fullName + " - " + professionName;
                             profesionList.add(fullNameWithProfession);
                         }
 
-                        adapter.notifyDataSetChanged(); // Notificar al adaptador que los datos han cambiado
-                        mostrarMensaje("DATOS RECIBIDOS CON ÉXITO");
+                        // Mostrar todos los registros al inicio
+                        filteredList.clear();
+                        filteredList.addAll(profesionList);
+                        adapter.notifyDataSetChanged();
+                        mostrarMensaje("Datos cargados exitosamente");
                     } catch (JSONException e) {
                         mostrarMensaje("Error en la respuesta del servidor");
                     }
                 }
-
             }
 
             @Override
             public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-                mostrarMensaje("Error al realizar la solicitud: " + error.getMessage());
+                mostrarMensaje("Error al realizar la solicitud: " + (error != null ? error.getMessage() : "desconocido"));
             }
         });
+    }
+
+    private void filterList(String query) {
+        filteredList.clear();
+        if (TextUtils.isEmpty(query)) {
+            filteredList.addAll(profesionList); // Mostrar todos los registros si la búsqueda está vacía
+        } else {
+            for (String item : profesionList) {
+                if (item.toLowerCase().contains(query.toLowerCase())) {
+                    filteredList.add(item); // Agregar solo las coincidencias
+                }
+            }
+        }
+        adapter.notifyDataSetChanged();
+        if (filteredList.isEmpty()) {
+            mostrarMensaje("Registro no encontrado");
+        }
     }
 
     private void mostrarMensaje(String mensaje) {
