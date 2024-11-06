@@ -23,12 +23,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cz.msebera.android.httpclient.Header;
-import sv.edu.itca.apployment.adapter.ProfessionAdapter;
+import sv.edu.itca.apployment.adapter.ProfessionCardAdapter;
 
 public class SearchFragment extends Fragment {
     private List<String> profesionList;
-    private List<String> filteredList; // Lista filtrada para mostrar coincidencias
-    private ProfessionAdapter adapter;
+    private List<String> filteredList;
+    private ProfessionCardAdapter adapter;
     private SearchView searchView;
 
     public SearchFragment() {
@@ -48,9 +48,9 @@ public class SearchFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_search, container, false);
 
-        RecyclerView recyclerView = view.findViewById(R.id.searchView);
+        RecyclerView recyclerView = view.findViewById(R.id.searchView); // ID del RecyclerView
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        adapter = new ProfessionAdapter(filteredList); // Inicializar con la lista filtrada
+        adapter = new ProfessionCardAdapter(filteredList); // Usar el nuevo Adapter con Cards
         recyclerView.setAdapter(adapter);
 
         searchView = view.findViewById(R.id.buscarProfesion);
