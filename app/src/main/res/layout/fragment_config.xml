@@ -71,6 +71,7 @@
         android:backgroundTint="@color/white"
         android:drawableLeft="@drawable/perfil123"
         android:text=" Mi Cuenta"
+        android:onClick="perfil"
         android:textAlignment="textStart"
         android:textColor="@color/black"
         android:textSize="20dp"

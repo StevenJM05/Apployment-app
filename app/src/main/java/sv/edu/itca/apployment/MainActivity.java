@@ -15,6 +15,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,22 +38,24 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 Fragment selectedFragment = null;
 
-                if(item.getItemId()== R.id.navigation_trabajadores){
+                if (item.getItemId() == R.id.navigation_trabajadores) {
                     selectedFragment = new WorkersFragment();
-                } else if (item.getItemId()==R.id.navigation_publicaciones) {
+                } else if (item.getItemId() == R.id.navigation_publicaciones) {
                     selectedFragment = new PublicationsFragment();
-                }else if(item.getItemId() == R.id.navigation_buscar){
+                } else if (item.getItemId() == R.id.navigation_buscar) {
                     selectedFragment = new SearchFragment();
-                }else if(item.getItemId()== R.id.navigation_perfil){
-                    selectedFragment = new ProfileFragment();
+                } else if (item.getItemId() == R.id.navigation_perfil) {
+                    selectedFragment = new config();
+
+                    }
+                    if (selectedFragment != null) {
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.fragment_container, selectedFragment)
+                                .commit();
+                    }
+                    return true;
                 }
-                if(selectedFragment != null){
-                    getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.fragment_container, selectedFragment)
-                            .commit();
-                }
-                return true;
-            }
+
         });
 
     }

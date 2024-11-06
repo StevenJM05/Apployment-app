@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E4200552"
+    tools:context=".quienes">
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="149dp"
+        android:layout_height="105dp"
+        android:layout_marginStart="118dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="144dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_goneMarginBottom="25dp"
+        app:srcCompat="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="¿Quienes Somos?"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintVertical_bias="0.0">
+
+         <TextView
+        android:id="@+id/missionTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="32dp"
+        android:text="Nuestra misión es simplificar la búsqueda y contratación de profesionales para servicios a domicilio, ofreciendo una plataforma accesible y confiable para todos. Sabemos que encontrar el oficio adecuado puede ser un desafío, y por eso hemos creado una app donde podrás acceder a una variedad de servicios, desde reparaciones hasta mejoras del hogar, con tan solo unos clics. \n\nComo estudiantes, estamos comprometidos con el aprendizaje continuo y aplicamos lo mejor de nuestras habilidades en cada desarrollo. Nos esforzamos por construir una comunidad en la que tanto usuarios como profesionales se sientan seguros y respaldados, promoviendo la confianza y la transparencia en cada conexión.\n\nBuscamos mejorar día a día, escuchando las sugerencias y necesidades de nuestros usuarios para hacer de esta plataforma una herramienta verdaderamente útil y eficiente en el mundo de los oficios a domicilio."
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="italic" />
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
