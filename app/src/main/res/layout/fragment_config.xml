@@ -5,140 +5,128 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:id="@+id/main"
     tools:context=".Configuracion">
 
-    <FrameLayout
-        android:id="@+id/fragment_container"
+    <!-- Header Section with Gradient Background -->
+    <LinearLayout
+        android:id="@+id/header_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-    </FrameLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
-        android:layout_width="413dp"
-        android:layout_height="214dp"
-        android:background="#27085D"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_height="200dp"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:background="@drawable/gradient_background"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints,VisualLintBounds">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="0dp"
-            android:layout_height="113dp"
-            android:layout_marginTop="37dp"
-            android:layout_marginEnd="19dp"
-            android:layout_marginBottom="64dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/textView"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/usuario"
+            android:id="@+id/user_icon"
+            android:layout_width="125dp"
+            android:layout_height="93dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/usuario"
             tools:ignore="ContentDescription" />
 
         <TextView
-            android:id="@+id/textView"
-            android:layout_width="198dp"
-            android:layout_height="67dp"
-            android:layout_marginStart="19dp"
-            android:layout_marginTop="75dp"
-            android:layout_marginEnd="31dp"
-            android:layout_marginBottom="72dp"
-            android:text="Hola Usuario!"
-            android:textColor="@color/white"
-            android:textSize="30dp"
+            android:id="@+id/user_greeting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="¡Hola, Usuario!"
+            android:textSize="28sp"
+            android:textColor="@android:color/white"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView"
+            android:layout_gravity="center_vertical" />
+    </LinearLayout>
+
+    <!-- Buttons Section -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/buttons_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/header_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <Button
+            android:id="@+id/btn_account"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_margin="8dp"
+            android:onClick="perfil"
+            android:background="?attr/selectableItemBackground"
+            android:drawableLeft="@drawable/perfil123"
+            android:text="Mi Cuenta"
+            android:textColor="@color/purple_500"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
             app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="HardcodedText,SpUsage" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <Button
+            android:id="@+id/btn_about_us"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_margin="8dp"
+            android:background="?attr/selectableItemBackground"
+            android:drawableLeft="@drawable/acerca"
+            android:text="Acerca de Nosotros"
+            android:textColor="@color/purple_500"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/btn_account"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <Button
+            android:id="@+id/btn_who_we_are"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_margin="8dp"
+            android:background="?attr/selectableItemBackground"
+            android:drawableLeft="@drawable/quien"
+            android:text="¿Quiénes Somos?"
+            android:textColor="@color/purple_500"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/btn_about_us"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <Button
+            android:id="@+id/btn_privacy_policy"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_margin="8dp"
+            android:background="?attr/selectableItemBackground"
+            android:drawableLeft="@drawable/politicas"
+            android:text="Políticas de Privacidad"
+            android:textColor="@color/purple_500"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/btn_who_we_are"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- New Log Out Button -->
+        <Button
+            android:id="@+id/btn_logout"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_margin="8dp"
+            android:background="?attr/selectableItemBackground"
+            android:drawableLeft="@drawable/cerrar"
+            android:text="Cerrar Sesión"
+            android:textColor="@color/purple_500"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/btn_privacy_policy"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="348dp"
-        android:layout_height="56dp"
-        android:layout_marginStart="31dp"
-        android:layout_marginTop="57dp"
-        android:layout_marginEnd="32dp"
-        android:backgroundTint="@color/white"
-        android:drawableLeft="@drawable/perfil123"
-        android:text=" Mi Cuenta"
-        android:onClick="perfil"
-        android:textAlignment="textStart"
-        android:textColor="@color/black"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-        tools:ignore="HardcodedText,MissingConstraints,RtlHardcoded,SpUsage,TextSizeCheck" />
-
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="348dp"
-        android:layout_height="56dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="23dp"
-        android:layout_marginEnd="31dp"
-        android:backgroundTint="@color/white"
-        android:drawableLeft="@drawable/quien"
-        android:shadowColor="#474545"
-        android:text=" ¿Quienes Somos?"
-        android:textAlignment="textStart"
-        android:textColor="@color/black"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2"
-        tools:ignore="HardcodedText,MissingConstraints,RtlHardcoded,SpUsage,VisualLintButtonSize,TextSizeCheck" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="348dp"
-        android:layout_height="56dp"
-        android:layout_marginStart="31dp"
-        android:layout_marginTop="23dp"
-        android:layout_marginEnd="32dp"
-        android:backgroundTint="@color/white"
-        android:drawableLeft="@drawable/acerca"
-        android:shadowColor="#474545"
-        android:text=" Acerca de Nosotros"
-        android:textAlignment="textStart"
-        android:textColor="@color/black"
-        android:textSize="20dp"
-        android:onClick="acerca"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button"
-        tools:ignore="HardcodedText,MissingConstraints,RtlHardcoded,SpUsage,TextSizeCheck,VisualLintButtonSize" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="348dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="23dp"
-        android:backgroundTint="@color/white"
-        android:drawableLeft="@drawable/politicas"
-        android:shadowColor="#474545"
-        android:text=" Politicas de Privacidad"
-        android:textAlignment="textStart"
-        android:textColor="@color/black"
-        android:onClick="politicas"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button1"
-        tools:ignore="HardcodedText,MissingConstraints,RtlHardcoded,SpUsage,TextSizeCheck,VisualLintButtonSize" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
