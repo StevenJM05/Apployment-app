@@ -34,4 +34,10 @@ public class Configuracion extends AppCompatActivity {
         Intent politica = new Intent(Configuracion.this, politicas.class);
         startActivity(politica);
     }
+
+    public void perfil(View view) {
+        Intent profile = new Intent(Configuracion.this, ProfileFragment.class);
+        startActivity(profile);
+
+    }
 }
