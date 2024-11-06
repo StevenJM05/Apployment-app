@@ -1,14 +1,26 @@
-<?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".PublicationsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <!-- Título para las publicaciones -->
     <TextView
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Publicaciones"
+        android:textSize="18sp"
+        android:padding="10dp"
+        android:gravity="center"
+        android:background="?attr/colorPrimary"
+        android:textColor="@android:color/white" />
+
+    <!-- RecyclerView para mostrar las publicaciones -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/publicationsView"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Publicaciones" />
+        android:layout_marginTop="50dp"
+        android:padding="10dp" />
 
 </FrameLayout>
