@@ -4,18 +4,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="16dp"
     tools:context=".SearchFragment">
 
+    <!-- Buscar Professions -->
     <androidx.appcompat.widget.SearchView
         android:id="@+id/buscarProfesion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:queryHint="Buscar..."/>
+        android:queryHint="Buscar profesión..."
+        android:iconifiedByDefault="false"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/searchview_background3"
+        android:padding="12dp"/>
 
+    <!-- RecyclerView para mostrar resultados -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/searchView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:padding="10dp" />
+        android:padding="10dp"/>
 </LinearLayout>
