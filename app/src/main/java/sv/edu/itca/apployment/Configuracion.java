@@ -40,4 +40,8 @@ public class Configuracion extends AppCompatActivity {
         startActivity(profile);
 
     }
+
+    public void logout(View view) {
+        System.exit(0);
+    }
 }

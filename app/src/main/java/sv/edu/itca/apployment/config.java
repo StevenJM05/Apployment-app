@@ -44,15 +44,15 @@ public class config extends Fragment {
         View view = inflater.inflate(R.layout.fragment_config, container, false);
 
         // Inicializar los botones y asignar los listeners
-        Button button2 = view.findViewById(R.id.button2);
-        Button button1 = view.findViewById(R.id.button1);
-        Button button3 = view.findViewById(R.id.button3);
-        Button button = view.findViewById(R.id.button);
+        Button btn_account = view.findViewById(R.id.btn_account);
+        Button btn_about_us = view.findViewById(R.id.btn_about_us);
+        Button btn_who_we_are = view.findViewById(R.id.btn_who_we_are);
+        Button btn_privacy_policy = view.findViewById(R.id.btn_privacy_policy);
 
-        button2.setOnClickListener(v -> navigateToFragment(new acercade()));
-        button3.setOnClickListener(v -> navigateToFragment(new politics()));
-        button1.setOnClickListener(v -> navigateToFragment(new quienes()));
-        button.setOnClickListener(v -> navigateToFragment(new ProfileFragment()));
+        btn_about_us.setOnClickListener(v -> navigateToFragment(new acercade()));
+        btn_privacy_policy.setOnClickListener(v -> navigateToFragment(new politics()));
+        btn_who_we_are.setOnClickListener(v -> navigateToFragment(new quienes()));
+        btn_account.setOnClickListener(v -> navigateToFragment(new ProfileFragment()));
 
         return view;
     }
