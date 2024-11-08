@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Fondo del botón -->
+    <solid android:color="@color/accent" />  <!-- Color de fondo (el color de acento) -->
+
+    <!-- Bordes redondeados -->
+    <corners android:radius="16dp" />  <!-- Bordes más redondeados, puedes ajustarlo según lo que prefieras -->
+
+    <!-- Sombra sutil para dar un efecto de profundidad -->
+    <elevation android:value="4dp"/>  <!-- Esto crea una sombra sutil, puedes ajustar el valor -->
+
+    <!-- Borde del botón -->
+    <stroke android:color="#3700B3" android:width="1dp" />  <!-- Color del borde oscuro -->
+</shape>
