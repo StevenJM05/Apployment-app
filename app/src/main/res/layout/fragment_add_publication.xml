@@ -1,0 +1,82 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".AddPublication">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Campo para el Título -->
+        <EditText
+            android:id="@+id/titleEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Title"
+            android:inputType="text"
+            android:maxLength="255" />
+
+        <!-- Campo para la Descripción -->
+        <EditText
+            android:id="@+id/descriptionEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Description"
+            android:inputType="textMultiLine"
+            android:maxLength="1000" />
+
+        <!-- Campo para la Ubicación -->
+        <EditText
+            android:id="@+id/locationEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Location"
+            android:inputType="text"
+            android:maxLength="255" />
+
+        <!-- Campo para la Fecha -->
+        <EditText
+            android:id="@+id/dateEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Date (YYYY-MM-DD)"
+            android:inputType="date" />
+
+        <!-- Campo para el Estado -->
+        <EditText
+            android:id="@+id/statusEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Status (e.g., 1)"
+            android:inputType="number" />
+
+        <!-- Spinner para seleccionar el Profile ID -->
+        <Spinner
+            android:id="@+id/profileSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+        />
+        <!--  android:prompt="Select Profile ID"  -->
+
+
+        <!-- Spinner para seleccionar la Profesión -->
+        <Spinner
+            android:id="@+id/professionSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+        <!--             android:prompt="Select Profession"
+ -->
+
+        <!-- Botón para Enviar -->
+        <Button
+            android:id="@+id/submitButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Publication" />
+    </LinearLayout>
+</ScrollView>

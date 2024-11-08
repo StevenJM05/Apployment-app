@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
@@ -24,7 +25,7 @@ import cz.msebera.android.httpclient.Header;
 import sv.edu.itca.apployment.adapter.PublicationAdapter;
 
 public class PublicationsFragment extends Fragment implements PublicationAdapter.OnPublicationClickListener {
-
+private Button agregarPublicacion;
 
     private List<String> publicationList;
     private List<String> publicationIdList;
@@ -69,7 +70,28 @@ public class PublicationsFragment extends Fragment implements PublicationAdapter
         // Usa el PublicationAdapter y pasa la interfaz del fragmento
         adapter = new PublicationAdapter(getContext(), publicationList, publicationIdList, titulosList, descripcionesList, fechasList, usersnamesList, this);
         recyclerView.setAdapter(adapter);
+
+        agregarPublicacion = view.findViewById(R.id.btn_add_publication);
+        agregarPublicacion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addPublication();
+            }
+        });
+
+
         return view;
+    }
+
+    private void addPublication() {
+        AddPublication adddpub = new AddPublication(); // Cambia 'agregarnewPublicacion' al nombre real de tu clase de fragmento
+        // Inicia la transacción para reemplazar el fragmento actual
+        getActivity().getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, adddpub) // Asegúrate de que `fragment_container` sea el contenedor de fragmentos correcto en tu layout
+                .addToBackStack(null) // Permite regresar al fragmento anterior al presionar "Atrás"
+                .commit();
+
+
     }
 
 
@@ -133,8 +155,9 @@ public class PublicationsFragment extends Fragment implements PublicationAdapter
         });
     }
 
-
     private void mostrarMensaje(String mensaje) {
         Toast.makeText(getActivity(), mensaje, Toast.LENGTH_SHORT).show();
     }
+
+
 }
