@@ -73,7 +73,7 @@ public class WorkersFragment extends Fragment implements WorkersAdapter.OnWorker
     }
 
     private void fetchWorkers() {
-        String url = "https://apployment.online/public/api/profile";
+        String url = "https://apployment.online/public/api/worker-profiles";
         AsyncHttpClient client = new AsyncHttpClient();
         client.get(url, new AsyncHttpResponseHandler() {
             @Override
@@ -94,10 +94,18 @@ public class WorkersFragment extends Fragment implements WorkersAdapter.OnWorker
                             String names = worker.getString("names");
                             String lastName = worker.getString("last_name");
                             String fullName = names + " " + lastName;
-                            workersList.add(fullName);
+
 
                             // Obtener ID y agregar a la lista de IDs
                             String id = worker.getString("id");
+
+                            JSONArray professions = worker.optJSONArray("professions");
+                            String professionName = "";
+                            if (professions != null && professions.length() > 0) {
+                                JSONObject profession = professions.getJSONObject(0);
+                                professionName = profession.optString("name", "");
+                            }
+                            workersList.add(fullName + " " + professionName);
                             workersIds.add(id);
                         }
 

@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -66,6 +67,9 @@ public class LoginActivity extends AppCompatActivity {
                             String token = jsonResponse.getString("token");
                             String role = jsonResponse.getString("role");
 
+                            JSONObject takearray = jsonResponse.optJSONObject("user");
+                            String Iduser = takearray.optString("id");
+                            Toast.makeText(LoginActivity.this,Iduser , Toast.LENGTH_SHORT).show();
 
                             if (role.equals("worker")) {
                                 Toast.makeText(LoginActivity.this, "BIENVENIDO" , Toast.LENGTH_SHORT).show();
