@@ -6,20 +6,32 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Calendar;
+
+import cz.msebera.android.httpclient.Header;
 
 public class CreateProfileFirst extends AppCompatActivity {
     private EditText names, lastnames, userid, birthdateEditText;
@@ -88,6 +100,8 @@ public class CreateProfileFirst extends AppCompatActivity {
 
         selectPhotoButton.setOnClickListener(v -> openGallery());
         selectCamaraButton.setOnClickListener(v -> openCamera());
+
+
     }
 
     private void openGallery() {
@@ -159,4 +173,75 @@ public class CreateProfileFirst extends AppCompatActivity {
             }
         }
     }
+
+
+    public void GuardarProfile(View view) {
+        // Obtener los valores de los campos
+        String name = names.getText().toString();
+        String lastname = lastnames.getText().toString();
+        String userId = userid.getText().toString();
+        String birthdate = birthdateEditText.getText().toString();
+        String selectedGender = gender.getSelectedItem().toString();
+
+        // Verificar que los campos no estén vacíos
+        if (name.isEmpty() || lastname.isEmpty() || userId.isEmpty() || birthdate.isEmpty() || selectedGender.isEmpty()) {
+            Toast.makeText(this, "Por favor, completa todos los campos.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Obtener la imagen del ImageView
+        Bitmap selectedImageBitmap = ((BitmapDrawable) photoImageView.getDrawable()).getBitmap();
+
+        // Convertir el Bitmap a un archivo
+        File imageFile = new File(getExternalFilesDir(null), "profile_image.jpg");
+        try (FileOutputStream fos = new FileOutputStream(imageFile)) {
+            selectedImageBitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos); // Guardar la imagen como un archivo JPEG
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Crear un cliente para realizar la solicitud HTTP
+        String url = "https://apployment.online/public/api/profile";
+        AsyncHttpClient client = new AsyncHttpClient();
+
+        // Crear los parámetros de la solicitud
+        RequestParams sendData = new RequestParams();
+        sendData.put("names", name);
+        sendData.put("last_name", lastname);
+        sendData.put("birthdate", birthdate);
+        sendData.put("gender", selectedGender);
+        sendData.put("userId", userId);
+
+        // Enviar la imagen como archivo
+        try {
+            sendData.put("photo", imageFile);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // Realizar la solicitud POST usando Multipart
+        client.post(url, sendData, new AsyncHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                if (statusCode == 201) {
+                    // Manejar la respuesta exitosa aquí
+                    String response = new String(responseBody);
+                    // Aquí puedes parsear el response si es necesario
+                    Toast.makeText(CreateProfileFirst.this, "Datos enviados con éxito", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(CreateProfileFirst.this, "Fallo de la conexión", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                // Manejar los errores de la solicitud
+                Toast.makeText(CreateProfileFirst.this, "Fallo del servidor", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+
+
+
 }
