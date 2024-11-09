@@ -57,6 +57,7 @@ public class Configuracion extends AppCompatActivity {
                 @Override
                 public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                     if (statusCode == 200) {
+                        System.exit(0);
 
                     } else {
                         // Handle unsuccessful logout
