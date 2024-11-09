@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Fondo con gradiente -->
+    <gradient
+        android:startColor="#FFFFFF"
+        android:endColor="#F0F0F0"
+        android:angle="90"/>
+
+    <!-- Bordes redondeados -->
+    <corners android:radius="12dp"/>
+
+    <!-- Sombra sutil para dar profundidad -->
+    <shadow android:radius="2dp"
+        android:dx="0dp"
+        android:dy="2dp"
+        android:color="#80000000"/>
+
+    <!-- Borde gris claro -->
+    <stroke android:color="#BDBDBD" android:width="1dp"/>
+</shape>

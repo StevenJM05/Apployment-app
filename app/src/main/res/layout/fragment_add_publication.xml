@@ -15,68 +15,93 @@
             android:id="@+id/titleEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Title"
+            android:hint="Título"
             android:inputType="text"
-            android:maxLength="255" />
+            android:maxLength="255"
+            android:background="@drawable/edittext_bg"
+            android:padding="12dp"
+            android:textColorHint="@android:color/darker_gray"
+            android:textColor="@android:color/black"
+            android:layout_marginBottom="8dp"/>
 
         <!-- Campo para la Descripción -->
         <EditText
             android:id="@+id/descriptionEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Description"
+            android:hint="Descripción"
             android:inputType="textMultiLine"
-            android:maxLength="1000" />
+            android:maxLength="1000"
+            android:background="@drawable/edittext_bg"
+            android:padding="12dp"
+            android:textColorHint="@android:color/darker_gray"
+            android:textColor="@android:color/black"
+            android:layout_marginBottom="8dp"/>
 
         <!-- Campo para la Ubicación -->
         <EditText
             android:id="@+id/locationEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Location"
+            android:hint="Locación"
             android:inputType="text"
-            android:maxLength="255" />
+            android:maxLength="255"
+            android:background="@drawable/edittext_bg"
+            android:padding="12dp"
+            android:textColorHint="@android:color/darker_gray"
+            android:textColor="@android:color/black"
+            android:layout_marginBottom="8dp"/>
 
         <!-- Campo para la Fecha -->
         <EditText
             android:id="@+id/dateEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Date (YYYY-MM-DD)"
-            android:inputType="date" />
+            android:hint="Fecha (YYYY-MM-DD)"
+            android:inputType="date"
+            android:background="@drawable/edittext_bg"
+            android:padding="12dp"
+            android:textColorHint="@android:color/darker_gray"
+            android:textColor="@android:color/black"
+            android:layout_marginBottom="8dp"/>
 
         <!-- Campo para el Estado -->
         <EditText
             android:id="@+id/statusEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Status (e.g., 1)"
-            android:inputType="number" />
+            android:hint="Estado (e.g., 1)"
+            android:inputType="number"
+            android:background="@drawable/edittext_bg"
+            android:padding="12dp"
+            android:textColorHint="@android:color/darker_gray"
+            android:textColor="@android:color/black"
+            android:layout_marginBottom="8dp"/>
 
         <!-- Spinner para seleccionar el Profile ID -->
         <Spinner
             android:id="@+id/profileSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-        />
-        <!--  android:prompt="Select Profile ID"  -->
-
+            android:layout_marginBottom="8dp"/>
 
         <!-- Spinner para seleccionar la Profesión -->
         <Spinner
             android:id="@+id/professionSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            />
-
-        <!--             android:prompt="Select Profession"
- -->
+            android:layout_marginBottom="8dp"/>
 
         <!-- Botón para Enviar -->
         <Button
             android:id="@+id/submitButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Add Publication" />
+            android:text="Agregar Publicación"
+            android:textColor="@android:color/white"
+
+            android:background="@drawable/button_bg"
+            android:layout_marginTop="16dp"
+            android:padding="12dp" />
     </LinearLayout>
 </ScrollView>
