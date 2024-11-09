@@ -1,0 +1,95 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:weightSum="1"
+    tools:context=".CreateProfileFirst">
+
+    <TextView
+        android:id="@+id/SaludoRegistrar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="20dp"
+        android:textColor="@color/moradoclaro"
+        />
+    <!-- Names EditText -->
+    <EditText
+        android:id="@+id/names"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Names"
+        android:inputType="text" />
+
+    <!-- Last Name EditText -->
+    <EditText
+        android:id="@+id/last_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Last Name"
+        android:inputType="text" />
+
+    <!-- Birthdate EditText -->
+    <EditText
+        android:id="@+id/birthdate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Birthdate (YYYY-MM-DD)"
+        android:inputType="text"
+        android:focusable="false"
+        android:clickable="true" />
+
+    <!-- Gender Spinner -->
+    <Spinner
+        android:id="@+id/gender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/gender_options" />
+
+    <!-- User ID EditText -->
+    <EditText
+        android:id="@+id/user_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="User ID"
+        android:inputType="number" />
+
+    <!-- Select Photo Button -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <Button
+            android:id="@+id/selectPhotoButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Seleccionar fotografia" />
+        <Button
+            android:id="@+id/selectCameraButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tomar fotografia" />
+    </LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/photoImageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@android:drawable/ic_menu_gallery"
+        android:layout_marginTop="16dp" />
+
+
+    <!-- Submit Button -->
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Guardar" />
+
+</LinearLayout>

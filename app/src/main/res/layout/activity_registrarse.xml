@@ -1,25 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:orientation="vertical"
+    android:layout_height="match_parent"
     android:background="#CCB7E1"
     android:gravity="center"
+    android:orientation="vertical"
     tools:context=".Registrarse"
 
     >
+
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
         android:layout_gravity="center"
-        android:background="#BB86FC"
+        android:layout_margin="16dp"
         android:layout_marginTop="500dp"
+        android:background="#BB86FC"
         app:cardCornerRadius="20dp"
-        app:cardElevation="5dp"
-        >
+        app:cardElevation="5dp">
 
         <LinearLayout
 
@@ -57,7 +58,6 @@
                 app:srcCompat="@drawable/logoapployment"
                 tools:ignore="UnusedAttribute,ImageContrastCheck" />
 
-
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="325dp"
                 android:layout_height="wrap_content"
@@ -75,10 +75,6 @@
                     android:hint="      Nombre de usuario"
                     android:textColor="@color/white" />
             </com.google.android.material.textfield.TextInputLayout>
-
-
-
-
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="325dp"
@@ -182,11 +178,10 @@
                     android:autoLink="web"
                     android:inputType="textUri"
                     android:linksClickable="true"
+                    android:onClick="OpenLogin"
                     android:text="@string/iniciar_sesi_n"
                     android:textColor="#FFFFFF"
-                    tools:ignore="Autofill,TextFields,TextViewEdits,TouchTargetSizeCheck"
-                    android:onClick="OpenLogin"
-                    >
+                    tools:ignore="Autofill,TextFields,TextViewEdits,TouchTargetSizeCheck">
 
                 </TextView>
             </LinearLayout>

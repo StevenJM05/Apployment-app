@@ -83,10 +83,17 @@ public class Registrarse extends AppCompatActivity {
 
                         if (jsonResponse.getBoolean("success")) {
                             String role = jsonResponse.getString("role");
-                            Toast.makeText(Registrarse.this, "Registro completado. Bienvenido " + role, Toast.LENGTH_SHORT).show();
 
+                            JSONObject jsonUser = jsonResponse.optJSONObject("user");
+                            String idUser = jsonUser.optString("id");
+                            String nameUser = jsonUser.optString("name");
+
+
+                            Toast.makeText(Registrarse.this, "Registro completado. Bienvenido " + nameUser, Toast.LENGTH_SHORT).show();
                             // Redirigir a la pantalla de inicio de sesión
-                            Intent ini = new Intent(Registrarse.this, MainActivity.class);
+                            Intent ini = new Intent(Registrarse.this, CreateProfileFirst.class);
+                            ini.putExtra("idUser",idUser);
+                            ini.putExtra("nameUser",nameUser);
                             startActivity(ini);
                         } else {
                             Toast.makeText(Registrarse.this, "No se pudo registrar, intentelo nuevamente", Toast.LENGTH_SHORT).show();

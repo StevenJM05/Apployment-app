@@ -69,22 +69,22 @@ public class LoginActivity extends AppCompatActivity {
 
                             JSONObject takearray = jsonResponse.optJSONObject("user");
                             String Iduser = takearray.optString("id");
-                            Toast.makeText(LoginActivity.this,Iduser , Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, Iduser, Toast.LENGTH_SHORT).show();
+
 
                             if (role.equals("worker")) {
-                                Toast.makeText(LoginActivity.this, "BIENVENIDO" , Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, "BIENVENIDO", Toast.LENGTH_SHORT).show();
                                 Intent intento1 = new Intent(LoginActivity.this, MainActivity.class);
                                 intento1.putExtra("token", token);
                                 startActivity(intento1);
 
                             } else if (role.equals("user")) {
-                                Toast.makeText(LoginActivity.this, "BIENVENIDO" , Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, "BIENVENIDO", Toast.LENGTH_SHORT).show();
                                 Intent intento2 = new Intent(LoginActivity.this, MainActivity.class);
                                 intento2.putExtra("token", token);
                                 startActivity(intento2);
-                            }
-                            else{
-                                Toast.makeText(LoginActivity.this, "BIENVENIDO" , Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(LoginActivity.this, "BIENVENIDO", Toast.LENGTH_SHORT).show();
                             }
                         } else {
                             MostrarMensaje("Error en el inicio de sesión");

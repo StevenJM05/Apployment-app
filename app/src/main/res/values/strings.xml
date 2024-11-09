@@ -31,4 +31,9 @@
     <string name="logo_description">logo_description</string>
     <string name="bienvenido_a">Bienvenido(a)</string>
     <string name="agregar_publicaci_n">Agregar Publicación</string>
+    <string-array name="gender_options">
+        <item>Hombre</item>
+        <item>Mujer</item>
+    </string-array>
+
 </resources>
