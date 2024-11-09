@@ -26,6 +26,9 @@ import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -183,16 +186,13 @@ public class CreateProfileFirst extends AppCompatActivity {
         String birthdate = birthdateEditText.getText().toString();
         String selectedGender = gender.getSelectedItem().toString();
 
-        // Verificar que los campos no estén vacíos
         if (name.isEmpty() || lastname.isEmpty() || userId.isEmpty() || birthdate.isEmpty() || selectedGender.isEmpty()) {
             Toast.makeText(this, "Por favor, completa todos los campos.", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        // Obtener la imagen del ImageView
         Bitmap selectedImageBitmap = ((BitmapDrawable) photoImageView.getDrawable()).getBitmap();
 
-        // Convertir el Bitmap a un archivo
         File imageFile = new File(getExternalFilesDir(null), "profile_image.jpg");
         try (FileOutputStream fos = new FileOutputStream(imageFile)) {
             selectedImageBitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos); // Guardar la imagen como un archivo JPEG
@@ -200,11 +200,9 @@ public class CreateProfileFirst extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        // Crear un cliente para realizar la solicitud HTTP
         String url = "https://apployment.online/public/api/profile";
         AsyncHttpClient client = new AsyncHttpClient();
 
-        // Crear los parámetros de la solicitud
         RequestParams sendData = new RequestParams();
         sendData.put("names", name);
         sendData.put("last_name", lastname);
@@ -212,22 +210,32 @@ public class CreateProfileFirst extends AppCompatActivity {
         sendData.put("gender", selectedGender);
         sendData.put("user_id", userId);
 
-        // Enviar la imagen como archivo
         try {
             sendData.put("photo", imageFile);
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        // Realizar la solicitud POST usando Multipart
         client.post(url, sendData, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 if (statusCode == 201) {
-                    // Manejar la respuesta exitosa aquí
-                    String response = new String(responseBody);
-                    // Aquí puedes parsear el response si es necesario
-                    Toast.makeText(CreateProfileFirst.this, "Datos enviados con éxito", Toast.LENGTH_SHORT).show();
+
+                    try {
+                        String respuesta = new String(responseBody);
+                        JSONObject jsonResponse = new JSONObject(respuesta);
+                        String idUser = jsonResponse.optString("user_id");
+
+                        Toast.makeText(CreateProfileFirst.this, "Datos enviados con éxito", Toast.LENGTH_SHORT).show();
+                        Intent intento1 = new Intent(CreateProfileFirst.this, MainActivity.class);
+                        intento1.putExtra("idUser",idUser);
+                        startActivity(intento1);
+
+                    } catch (JSONException e) {
+                        throw new RuntimeException(e);
+                    }
+
+
                 } else {
                     Toast.makeText(CreateProfileFirst.this, "Fallo de la conexión", Toast.LENGTH_SHORT).show();
                 }

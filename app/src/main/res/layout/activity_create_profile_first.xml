@@ -46,16 +46,21 @@
     <Spinner
         android:id="@+id/gender"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="38dp"
         android:entries="@array/gender_options" />
 
     <!-- User ID EditText -->
     <EditText
         android:id="@+id/user_id"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="User ID"
-        android:inputType="number" />
+        android:layout_height="20dp"
+        android:clickable="false"
+        android:enabled="false"
+        android:focusable="false"
+        android:inputType="number"
+        android:longClickable="false"
+        android:visibility="invisible" />
+
 
     <!-- Select Photo Button -->
     <LinearLayout
