@@ -210,7 +210,7 @@ public class CreateProfileFirst extends AppCompatActivity {
         sendData.put("last_name", lastname);
         sendData.put("birthdate", birthdate);
         sendData.put("gender", selectedGender);
-        sendData.put("userId", userId);
+        sendData.put("user_id", userId);
 
         // Enviar la imagen como archivo
         try {
