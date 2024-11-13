@@ -12,7 +12,9 @@ import sv.edu.itca.apployment.R;
 
 public class WorkersAdapter extends RecyclerView.Adapter<WorkersAdapter.WorkerViewHolder> {
     private List<String> workersList;
-    private List<String> workersIds;  // Cambiado a List<Integer> para que coincida con la clase
+    private List<String> workersIds;
+    private List<String> professionList;
+    private List<String> citiesList;
     private Context context;
     private OnWorkerClickListener listener;
 
@@ -21,9 +23,11 @@ public class WorkersAdapter extends RecyclerView.Adapter<WorkersAdapter.WorkerVi
         void onWorkerClick(int workerId);
     }
 
-    public WorkersAdapter(List<String> workersList, List<String> workersIds, Context context, OnWorkerClickListener listener) {
+    public WorkersAdapter(List<String> workersList, List<String> workersIds, List<String> professionList, List<String> citiesList, Context context, OnWorkerClickListener listener) {
         this.workersList = workersList;
         this.workersIds = workersIds;
+        this.professionList = professionList;
+        this.citiesList = citiesList;
         this.context = context;
         this.listener = listener;
     }
@@ -39,6 +43,8 @@ public class WorkersAdapter extends RecyclerView.Adapter<WorkersAdapter.WorkerVi
     public void onBindViewHolder(@NonNull WorkerViewHolder holder, int position) {
         String workerName = workersList.get(position);
         holder.textViewWorkerName.setText(workerName);
+        holder.textViewProfession.setText(professionList.get(position));
+        holder.textViewCity.setText(citiesList.get(position));
 
         // Configura el clic en el elemento
         holder.itemView.setOnClickListener(v -> {
@@ -54,10 +60,14 @@ public class WorkersAdapter extends RecyclerView.Adapter<WorkersAdapter.WorkerVi
 
     public static class WorkerViewHolder extends RecyclerView.ViewHolder {
         TextView textViewWorkerName;
+        TextView textViewProfession;
+        TextView textViewCity;
 
         public WorkerViewHolder(@NonNull View itemView) {
             super(itemView);
             textViewWorkerName = itemView.findViewById(R.id.textViewWorkerName);
+            textViewProfession = itemView.findViewById(R.id.textViewProfession);
+            textViewCity = itemView.findViewById(R.id.textViewCity);
         }
     }
 }

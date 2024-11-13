@@ -46,7 +46,7 @@ private Button agregarPublicacion;
     }
 
     public PublicationsFragment() {
-        // Constructor vacío requerido
+
     }
 
     @Override
@@ -67,7 +67,6 @@ private Button agregarPublicacion;
         RecyclerView recyclerView = view.findViewById(R.id.publicationsView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        // Usa el PublicationAdapter y pasa la interfaz del fragmento
         adapter = new PublicationAdapter(getContext(), publicationList, publicationIdList, titulosList, descripcionesList, fechasList, usersnamesList, this);
         recyclerView.setAdapter(adapter);
 
@@ -84,11 +83,11 @@ private Button agregarPublicacion;
     }
 
     private void addPublication() {
-        AddPublication adddpub = new AddPublication(); // Cambia 'agregarnewPublicacion' al nombre real de tu clase de fragmento
-        // Inicia la transacción para reemplazar el fragmento actual
+        AddPublication adddpub = new AddPublication();
+
         getActivity().getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container, adddpub) // Asegúrate de que `fragment_container` sea el contenedor de fragmentos correcto en tu layout
-                .addToBackStack(null) // Permite regresar al fragmento anterior al presionar "Atrás"
+                .replace(R.id.fragment_container, adddpub)
+                .addToBackStack(null) 
                 .commit();
 
 

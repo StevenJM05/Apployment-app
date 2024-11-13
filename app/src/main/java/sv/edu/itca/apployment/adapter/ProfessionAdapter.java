@@ -10,23 +10,20 @@ import java.util.List;
 
 public class ProfessionAdapter extends RecyclerView.Adapter<ProfessionAdapter.ProfessionViewHolder> {
 
-    private List<String> professionList; // Mantiene la lista de Strings
+    private List<String> professionList;
 
-    // Constructor que recibe la lista de Strings
     public ProfessionAdapter(Context context, List<String> professionList, List<String> publicationIdList, List<String> titulosList, List<String> descripcionesList, List<String> fechasList, List<String> usersnamesList) {
         this.professionList = professionList;
     }
 
     @Override
     public ProfessionViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        // Infla el layout para cada ítem
         View view = LayoutInflater.from(parent.getContext()).inflate(android.R.layout.simple_list_item_1, parent, false);
         return new ProfessionViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(ProfessionViewHolder holder, int position) {
-        // Enlaza el String correspondiente a la posición actual
         holder.bind(professionList.get(position));
     }
 
@@ -40,12 +37,10 @@ public class ProfessionAdapter extends RecyclerView.Adapter<ProfessionAdapter.Pr
 
         public ProfessionViewHolder(View itemView) {
             super(itemView);
-            // Inicializa el TextView
             textView = itemView.findViewById(android.R.id.text1);
         }
 
         public void bind(String profession) {
-            // Establece el texto del TextView
             textView.setText(profession);
         }
     }

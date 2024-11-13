@@ -153,7 +153,7 @@ public class AddPublication extends Fragment {
     // Método para obtener el ID de la profesión seleccionada en el Spinner
     private String getSelectedProfessionId() {
         int position = professionSpinner.getSelectedItemPosition();
-        return idList.get(position);  // Obtiene el ID usando la posición seleccionada
+        return idList.get(position);  
     }
 
     private void mostrarMensaje(String mensaje) {
