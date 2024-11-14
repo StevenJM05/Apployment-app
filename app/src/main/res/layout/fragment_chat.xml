@@ -1,28 +1,23 @@
-<androidx.core.widget.NestedScrollView
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:orientation="vertical"
+    android:padding="10dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <!-- Título de la sección -->
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="10dp">
+        android:text="Tus Conversaciones"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
-        <!-- Título de la sección -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tus Conversaciones"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <!-- RecyclerView para la lista de conversaciones -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewConversations"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="10dp"/>
-    </LinearLayout>
-</androidx.core.widget.NestedScrollView>
+    <!-- RecyclerView para la lista de conversaciones -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewConversations"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingTop="10dp" />
+</LinearLayout>

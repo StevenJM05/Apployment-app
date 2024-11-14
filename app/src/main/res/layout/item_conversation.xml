@@ -1,45 +1,38 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@drawable/header_background"
+    android:padding="8dp"
+    android:layout_marginTop="10dp"> <!-- Ajustar el padding general -->
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_margin="8dp"
+    android:src="@drawable/user_avatar" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@drawable/card_background"
-        android:padding="16dp">
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginStart="10dp"
-            android:layout_gravity="center|top"
-            android:src="@drawable/user_avatar"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:orientation="vertical">
-            <TextView
-                android:id="@+id/textViewWorkerName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Nombre del trabajador"
-                android:layout_marginLeft="20dp"
-                android:textSize="18sp"
-                android:textColor="@color/black"
-                android:textStyle="bold" />
-            <TextView
-                android:id="@+id/textViewLastMessage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Ultimo mensaje"
-                android:layout_marginLeft="20dp"
-                android:textSize="14sp"
-                android:textColor="@color/black" />
+        android:orientation="vertical"
+        android:layout_marginTop="11dp">
 
-        </LinearLayout>
+        <TextView
+            android:id="@+id/textViewWorkerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre del trabajador"
+            android:layout_marginLeft="8dp"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewLastMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Último mensaje"
+            android:layout_marginLeft="8dp"
+            android:textSize="14sp" />
     </LinearLayout>
 </LinearLayout>
