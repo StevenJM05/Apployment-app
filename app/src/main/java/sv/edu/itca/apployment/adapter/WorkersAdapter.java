@@ -58,6 +58,15 @@ public class WorkersAdapter extends RecyclerView.Adapter<WorkersAdapter.WorkerVi
         return workersList.size();
     }
 
+    public void updateData(List<String> newWorkers, List<String> newIds, List<String> newProfessions, List<String> newCities) {
+        workersList = newWorkers;
+        workersIds = newIds;
+        professionList = newProfessions;
+        citiesList = newCities;
+        notifyDataSetChanged();
+    }
+
+
     public static class WorkerViewHolder extends RecyclerView.ViewHolder {
         TextView textViewWorkerName;
         TextView textViewProfession;

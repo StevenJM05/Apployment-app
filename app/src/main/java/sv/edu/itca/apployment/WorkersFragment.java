@@ -71,8 +71,37 @@ public class WorkersFragment extends Fragment implements WorkersAdapter.OnWorker
         adapter = new WorkersAdapter(workersList, workersIds, profession, cities, getContext(), this);
         recyclerView.setAdapter(adapter);
 
+        // Configurar clics para cada CardView
+        view.findViewById(R.id.carta1).setOnClickListener(v -> filterByProfession("Electricista"));
+        view.findViewById(R.id.carta2).setOnClickListener(v -> filterByProfession("Carpintero"));
+        view.findViewById(R.id.carta3).setOnClickListener(v -> filterByProfession("Mecánico"));
+        view.findViewById(R.id.carta4).setOnClickListener(v -> filterByProfession("Albañil"));
+        view.findViewById(R.id.carta5).setOnClickListener(v -> filterByProfession("Pintor"));
+        view.findViewById(R.id.carta6).setOnClickListener(v -> filterByProfession("Soldador"));
+        view.findViewById(R.id.carta7).setOnClickListener(v -> filterByProfession("Conductor"));
+
         return view;
     }
+
+    private void filterByProfession(String selectedProfession) {
+        List<String> filteredWorkers = new ArrayList<>();
+        List<String> filteredIds = new ArrayList<>();
+        List<String> filteredProfessions = new ArrayList<>();
+        List<String> filteredCities = new ArrayList<>();
+
+        for (int i = 0; i < workersList.size(); i++) {
+            if (profession.get(i).equals(selectedProfession)) {
+                filteredWorkers.add(workersList.get(i));
+                filteredIds.add(workersIds.get(i));
+                filteredProfessions.add(profession.get(i));
+                filteredCities.add(cities.get(i));
+            }
+        }
+
+        // Actualizar el adaptador con la lista filtrada
+        adapter.updateData(filteredWorkers, filteredIds, filteredProfessions, filteredCities);
+    }
+
 
     private void fetchWorkers() {
         String url = "https://apployment.online/public/api/workers";
