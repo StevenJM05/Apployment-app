@@ -114,20 +114,26 @@
                         String fullName = firstName + " " + lastName;
                         String birthdate = response.getString("birthdate");
                         String gender = response.getString("gender");
-                        String profileImage = response.getString("photo");
 
+                        // Construye la URL completa de la imagen
+                        String profileImage = response.getString("photo");
+                        String imageUrl = "https://apployment.online/public/storage/" + profileImage;
+
+                        // Otros datos de contacto
                         JSONObject contact = response.getJSONObject("contact");
                         String email = contact.getString("email");
                         String phone = contact.getString("phone");
                         String address = contact.getString("address");
 
                         JSONArray professions = response.getJSONArray("professions");
-                        String profession = ((JSONArray) professions).getJSONObject(0).getString("name");
+                        String profession = professions.getJSONObject(0).getString("name");
 
+                        // Calcular la edad
                         int birthYear = Integer.parseInt(birthdate.substring(0, 4));
                         int currentYear = java.util.Calendar.getInstance().get(java.util.Calendar.YEAR);
                         int age = currentYear - birthYear;
 
+                        // Actualizar las vistas
                         nameTextView.setText(fullName);
                         professionTextView.setText(profession);
                         locationTextView.setText(contact.getString("city"));
@@ -136,9 +142,11 @@
                         emailTextView.setText(email);
                         phoneTextView.setText(phone);
                         addressTextView.setText(address);
-                        Picasso.get().load("https://apployment.online/public/" + profileImage).into(profileImageView);
 
-                        // Procesa y muestra las habilidades
+                        // Cargar la imagen usando Picasso
+                        Picasso.get().load(imageUrl).into(profileImageView);
+
+                        // Procesar y mostrar las habilidades
                         JSONArray skillsArray = response.getJSONArray("skills");
                         skillList.clear();
                         for (int i = 0; i < skillsArray.length(); i++) {
