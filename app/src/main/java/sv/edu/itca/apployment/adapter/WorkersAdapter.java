@@ -49,7 +49,7 @@ public class WorkersAdapter extends RecyclerView.Adapter<WorkersAdapter.WorkerVi
         // Configura el clic en el elemento
         holder.itemView.setOnClickListener(v -> {
             int workerId = Integer.parseInt(workersIds.get(position));  // Obtén el ID del trabajador
-            listener.onWorkerClick(workerId);  // Llama al método de la interfaz
+            listener.onWorkerClick(workerId);
         });
     }
 

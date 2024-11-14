@@ -1,5 +1,6 @@
 package sv.edu.itca.apployment.adapter;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,24 +15,42 @@ import sv.edu.itca.apployment.R;
 
 public class ProfessionCardAdapter extends RecyclerView.Adapter<ProfessionCardAdapter.ProfessionViewHolder> {
 
-    private List<String> professionList; // Lista de profesiones o datos
+    private List<String> professionList;
+    private List<String> workersIds;
+    private List<String> professions;
+    private List<String> cities;
+    private Context context;
+    private OnWorkerClickListener clickListener;
 
-    // Constructor para recibir la lista de profesiones
-    public ProfessionCardAdapter(List<String> professionList) {
+    public interface OnWorkerClickListener {
+        void onWorkerClick(String workerId);
+    }
+
+    public ProfessionCardAdapter(List<String> professionList, List<String> workersIds, List<String> professions, List<String> cities, Context context, OnWorkerClickListener clickListener) {
         this.professionList = professionList;
+        this.workersIds = workersIds;
+        this.professions = professions;
+        this.cities = cities;
+        this.context = context;
+        this.clickListener = clickListener;
     }
 
     @Override
     public ProfessionViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        // Inflar el layout de cada card
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_profession, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.worker_item, parent, false);
         return new ProfessionViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(ProfessionViewHolder holder, int position) {
-        // Enlazar los datos a las vistas
-        holder.bind(professionList.get(position));
+        holder.fullNameText.setText(professionList.get(position));
+        holder.professionText.setText(professions.get(position));
+        holder.cityText.setText(cities.get(position));
+
+        holder.itemView.setOnClickListener(v -> {
+            String workerId = workersIds.get(position);
+            clickListener.onWorkerClick(workerId);
+        });
     }
 
     @Override
@@ -39,25 +58,16 @@ public class ProfessionCardAdapter extends RecyclerView.Adapter<ProfessionCardAd
         return professionList.size();
     }
 
-    // ViewHolder para enlazar los elementos del CardView
     public static class ProfessionViewHolder extends RecyclerView.ViewHolder {
         private TextView fullNameText;
         private TextView professionText;
+        private TextView cityText;
 
         public ProfessionViewHolder(View itemView) {
             super(itemView);
-            // Inicializamos los TextViews
-            fullNameText = itemView.findViewById(R.id.fullNameText);
-            professionText = itemView.findViewById(R.id.professionText);
-        }
-
-        public void bind(String profession) {
-            // Asumimos que cada 'profession' es un String con "Nombre Completo - Profesión"
-            String[] parts = profession.split(" - ");
-            if (parts.length > 1) {
-                fullNameText.setText(parts[0]); // Nombre completo
-                professionText.setText(parts[1]); // Profesión
-            }
+            fullNameText = itemView.findViewById(R.id.textViewWorkerName);
+            professionText = itemView.findViewById(R.id.textViewProfession);
+            cityText = itemView.findViewById(R.id.textViewCity);
         }
     }
 }

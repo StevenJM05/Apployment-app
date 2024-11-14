@@ -83,10 +83,8 @@ public class WorkersFragment extends Fragment implements WorkersAdapter.OnWorker
                 if (statusCode == 200) {
                     String respuesta = new String(responseBody);
                     try {
-                        // Primero convierte la respuesta a un objeto JSON
-                        JSONObject jsonObject = new JSONObject(respuesta);
 
-                        // Accede al array "data"
+                        JSONObject jsonObject = new JSONObject(respuesta);
                         JSONArray jsonArray = jsonObject.getJSONArray("data");
 
                         // Limpiar las listas antes de agregar nuevos datos
