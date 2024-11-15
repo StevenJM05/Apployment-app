@@ -140,16 +140,18 @@ public class ProfileFragment extends Fragment {
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 try {
                     boolean exists = response.getBoolean("exists");
-                    int conversationId = response.getInt("conversation_id");
-                    if (exists) {
+
+                    if (exists == false) {
+                        Toast.makeText(getContext(), "Conversación no existente.", Toast.LENGTH_SHORT).show();
+                        createConversation();
+                    } else if(exists) {
+                        int conversationId = response.getInt("conversation_id");
                         Toast.makeText(getContext(), "Conversación existente. ID: " + conversationId, Toast.LENGTH_SHORT).show();
                         ChatRoomFragment chatDetailFragment = ChatRoomFragment.newInstance(String.valueOf(conversationId), userId,nameTextView.getText().toString());
                         getActivity().getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.fragment_container, chatDetailFragment)
                                 .addToBackStack(null)
                                 .commit();
-                    } else {
-                        createConversation();
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -167,16 +169,18 @@ public class ProfileFragment extends Fragment {
     private void createConversation() {
         AsyncHttpClient client = new AsyncHttpClient();
         String createUrl = "https://apployment.online/public/api/create_conversation";
+        Toast.makeText(getContext(), "user_id: " + userId + ", another_user_id: " + another_user_id, Toast.LENGTH_SHORT).show();
         RequestParams params = new RequestParams();
         params.put("user_id", userId);
         params.put("user_id_worker", another_user_id);
-
         client.post(createUrl, params, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 try {
                     int conversationId = response.getInt("conversation_id");
                     Toast.makeText(getContext(), "Nueva conversación creada. ID: " + conversationId, Toast.LENGTH_SHORT).show();
+                    ChatRoomFragment chatDetailFragment = ChatRoomFragment.newInstance(String.valueOf(conversationId), userId,nameTextView.getText().toString());
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
