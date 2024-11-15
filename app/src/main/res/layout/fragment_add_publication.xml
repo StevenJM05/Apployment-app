@@ -58,39 +58,29 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Fecha (YYYY-MM-DD)"
-            android:inputType="date"
-            android:background="@drawable/edittext_bg"
-            android:padding="12dp"
-            android:textColorHint="@android:color/darker_gray"
-            android:textColor="@android:color/black"
-            android:layout_marginBottom="8dp"/>
+            android:inputType="text"
+            android:focusable="false"
+            android:clickable="true" />
 
         <!-- Campo para el Estado -->
+
+        <EditText
+            android:id="@+id/IdDprofile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
         <EditText
             android:id="@+id/statusEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Estado (e.g., 1)"
-            android:inputType="number"
-            android:background="@drawable/edittext_bg"
-            android:padding="12dp"
-            android:textColorHint="@android:color/darker_gray"
-            android:textColor="@android:color/black"
-            android:layout_marginBottom="8dp"/>
-
-        <!-- Spinner para seleccionar el Profile ID -->
-        <Spinner
-            android:id="@+id/profileSpinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"/>
+            />
 
         <!-- Spinner para seleccionar la Profesión -->
         <Spinner
             android:id="@+id/professionSpinner"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"/>
+            android:layout_height="40dp"
+            android:layout_marginBottom="8dp" />
 
         <!-- Botón para Enviar -->
         <Button

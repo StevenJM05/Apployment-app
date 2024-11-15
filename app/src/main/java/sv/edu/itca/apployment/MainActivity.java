@@ -45,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
                     selectedFragment.setArguments(bundle);
                 } else if (item.getItemId() == R.id.navigation_publicaciones) {
                     selectedFragment = new PublicationsFragment();
+                    Bundle bundle = new Bundle();
+                    bundle.putString("userId", userid);
                 } else if (item.getItemId() == R.id.navigation_buscar) {
                     selectedFragment = new SearchFragment();
                 } else if (item.getItemId() == R.id.navigation_message) {
