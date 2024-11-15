@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -25,8 +26,10 @@ import sv.edu.itca.apployment.modelos.Message;
 public class ChatRoomFragment extends Fragment {
 
     private static final String ARG_CONVERSATION_ID = "conversationId";
+    private static final String ARG_USER_ID = "userId";
     private String conversationId;
-    private String userId = "3"; // Cambia este ID al del usuario actual
+    private String userId;
+    private String nameUser;
 
     private RecyclerView recyclerViewMessages;
     private EditText editTextMessage;
@@ -38,10 +41,12 @@ public class ChatRoomFragment extends Fragment {
         // Constructor vacío requerido
     }
 
-    public static ChatRoomFragment newInstance(String conversationId) {
+    public static ChatRoomFragment newInstance(String conversationId, String userId, String nameUser) {
         ChatRoomFragment fragment = new ChatRoomFragment();
         Bundle args = new Bundle();
         args.putString(ARG_CONVERSATION_ID, conversationId);
+        args.putString(ARG_USER_ID, userId);
+        args.putString("nameUser", nameUser);
         fragment.setArguments(args);
         return fragment;
     }
@@ -51,13 +56,13 @@ public class ChatRoomFragment extends Fragment {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             conversationId = getArguments().getString(ARG_CONVERSATION_ID);
+            userId = getArguments().getString(ARG_USER_ID);
         }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflar el diseño del fragmento
         View view = inflater.inflate(R.layout.fragment_chat_room, container, false);
 
         recyclerViewMessages = view.findViewById(R.id.recyclerViewMessages);
@@ -69,6 +74,8 @@ public class ChatRoomFragment extends Fragment {
         messages = new ArrayList<>();
         messagesAdapter = new MessagesAdapter(messages);
         recyclerViewMessages.setAdapter(messagesAdapter);
+        nameUser = getArguments().getString("nameUser");
+        ((TextView) view.findViewById(R.id.chatTitle)).setText(nameUser);
 
         fetchMessages();
 

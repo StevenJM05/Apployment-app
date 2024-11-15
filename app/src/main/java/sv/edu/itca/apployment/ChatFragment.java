@@ -28,13 +28,13 @@ public class ChatFragment extends Fragment implements ConversationsAdapter.OnCon
     private String userId;
 
     public ChatFragment() {
-        // Required empty public constructor
+        // Constructor vacío requerido
     }
 
-    public static ChatFragment newInstance(String conversationId) {
+    public static ChatFragment newInstance(String userId) {
         ChatFragment fragment = new ChatFragment();
         Bundle args = new Bundle();
-        args.putString("conversationId", conversationId);
+        args.putString("userId", userId);
         fragment.setArguments(args);
         return fragment;
     }
@@ -50,7 +50,6 @@ public class ChatFragment extends Fragment implements ConversationsAdapter.OnCon
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_chat, container, false);
 
         recyclerViewConversations = view.findViewById(R.id.recyclerViewConversations);
@@ -85,7 +84,6 @@ public class ChatFragment extends Fragment implements ConversationsAdapter.OnCon
                         String workerName = conversation.getString("other_user_name");
                         String lastMessage = conversation.optString("last_message", "No messages yet");
 
-                        // Agrega los datos a las listas
                         conversationIds.add(conversationId);
                         workerNames.add(workerName);
                         lastMessages.add(lastMessage);
@@ -103,11 +101,11 @@ public class ChatFragment extends Fragment implements ConversationsAdapter.OnCon
         });
     }
 
-
     @Override
     public void onConversationClick(int position) {
         String conversationId = conversationIds.get(position);
-        ChatRoomFragment chatDetailFragment = ChatRoomFragment.newInstance(conversationId);
+        String nameUser = workerNames.get(position);
+        ChatRoomFragment chatDetailFragment = ChatRoomFragment.newInstance(conversationId, userId, nameUser);
         getActivity().getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fragment_container, chatDetailFragment)
                 .addToBackStack(null)
