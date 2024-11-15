@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
+        String userid = getIntent().getStringExtra("userId");
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
         getSupportFragmentManager().beginTransaction()
@@ -43,7 +44,13 @@ public class MainActivity extends AppCompatActivity {
                     selectedFragment = new PublicationsFragment();
                 } else if (item.getItemId() == R.id.navigation_buscar) {
                     selectedFragment = new SearchFragment();
-                } else if (item.getItemId() == R.id.navigation_perfil) {
+                } else if (item.getItemId() == R.id.navigation_message) {
+                    selectedFragment = new ChatFragment();
+                    Bundle bundle = new Bundle();
+                    bundle.putString("userId", userid);
+                    selectedFragment.setArguments(bundle);
+                }
+                else if (item.getItemId() == R.id.navigation_perfil) {
                     selectedFragment = new config();
 
                     }

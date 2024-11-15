@@ -76,12 +76,14 @@ public class LoginActivity extends AppCompatActivity {
                                 Toast.makeText(LoginActivity.this, "BIENVENIDO", Toast.LENGTH_SHORT).show();
                                 Intent intento1 = new Intent(LoginActivity.this, MainActivity.class);
                                 intento1.putExtra("token", token);
+                                intento1.putExtra("userId", Iduser);
                                 startActivity(intento1);
 
                             } else if (role.equals("user")) {
                                 Toast.makeText(LoginActivity.this, "BIENVENIDO", Toast.LENGTH_SHORT).show();
                                 Intent intento2 = new Intent(LoginActivity.this, MainActivity.class);
                                 intento2.putExtra("token", token);
+                                intento2.putExtra("userId", Iduser);
                                 startActivity(intento2);
                             } else {
                                 Toast.makeText(LoginActivity.this, "BIENVENIDO", Toast.LENGTH_SHORT).show();

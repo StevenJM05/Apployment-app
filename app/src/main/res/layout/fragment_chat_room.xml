@@ -1,0 +1,48 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- RecyclerView para el historial de mensajes -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewMessages"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:layout_above="@id/messageInputLayout"
+        android:layout_alignParentTop="true"
+        />
+
+    <!-- Sección para enviar nuevos mensajes -->
+    <LinearLayout
+        android:id="@+id/messageInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        >
+
+        <!-- Input del mensaje -->
+        <EditText
+            android:layout_marginTop="10dp"
+            android:id="@+id/editTextMessage"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:hint="Escribe un mensaje..."
+            android:textColorHint="@color/white"
+            android:background="@drawable/edittext_background"
+            />
+
+        <!-- Botón de enviar mensaje -->
+        <ImageButton
+            android:layout_marginTop="10dp"
+            android:id="@+id/buttonSendMessage"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_send"
+            android:contentDescription="Enviar mensaje"
+            android:background="?attr/selectableItemBackgroundBorderless"/>
+    </LinearLayout>
+</RelativeLayout>
