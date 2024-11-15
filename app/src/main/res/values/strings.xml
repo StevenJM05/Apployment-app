@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">Apployment</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="no_tienes_una_cuenta_crea_una">¿No tienes una cuenta? Crea una.</string>
     <string name="inicio_de_sesi_n">Inicio de Sesión</string>
     <string name="ingrese_correo_electr_nico">Ingrese correo electrónico</string>
@@ -17,7 +16,6 @@
     <string name="registrarse">Registrarse</string>
     <string name="ya_tienes_cuenta">¿Ya tienes cuenta?</string>
     <string name="iniciar_sesi_n">Iniciar sesión</string>
-    <string name="user_name">User Name</string>
     <string name="descripcion_de_la_publicacion">Descripcion de la publicacion</string>
     <string name="like">like</string>
     <string name="ver_mas">ver mas</string>
@@ -37,5 +35,6 @@
         <item>Hombre</item>
         <item>Mujer</item>
     </string-array>
+    <string name="user_name">User Name</string>
 
 </resources>
