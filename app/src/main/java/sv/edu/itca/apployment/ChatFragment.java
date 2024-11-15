@@ -82,7 +82,10 @@ public class ChatFragment extends Fragment implements ConversationsAdapter.OnCon
                         JSONObject conversation = response.getJSONObject(i);
                         String conversationId = conversation.getString("id");
                         String workerName = conversation.getString("other_user_name");
-                        String lastMessage = conversation.optString("last_message", "No messages yet");
+                        String lastMessage = conversation.optString("last_message");
+                        if (lastMessage == null) {
+                            lastMessage = "No messages yet";
+                        }
 
                         conversationIds.add(conversationId);
                         workerNames.add(workerName);

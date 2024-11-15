@@ -143,6 +143,11 @@ public class ProfileFragment extends Fragment {
                     int conversationId = response.getInt("conversation_id");
                     if (exists) {
                         Toast.makeText(getContext(), "Conversación existente. ID: " + conversationId, Toast.LENGTH_SHORT).show();
+                        ChatRoomFragment chatDetailFragment = ChatRoomFragment.newInstance(String.valueOf(conversationId), userId,nameTextView.getText().toString());
+                        getActivity().getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.fragment_container, chatDetailFragment)
+                                .addToBackStack(null)
+                                .commit();
                     } else {
                         createConversation();
                     }
