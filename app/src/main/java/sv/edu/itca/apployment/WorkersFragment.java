@@ -17,34 +17,35 @@ import java.util.ArrayList;
 import java.util.List;
 import cz.msebera.android.httpclient.Header;
 import sv.edu.itca.apployment.adapter.WorkersAdapter;
+import sv.edu.itca.apployment.modelos.UserSession;
 
-public class WorkersFragment extends Fragment implements WorkersAdapter.OnWorkerClickListener{
+public class WorkersFragment extends Fragment implements WorkersAdapter.OnWorkerClickListener {
     private List<String> workersList;
     private List<String> workersIds;
     private List<String> profession;
     private List<String> cities;
     private WorkersAdapter adapter;
 
-    public WorkersFragment() {
 
+
+
+    public WorkersFragment() {
+        // Constructor vacío
     }
 
     @Override
     public void onWorkerClick(int workerId) {
-        ProfileFragment profileFragment = ProfileFragment.newInstance(workerId);
-
-        getActivity().getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container, profileFragment)
-                .addToBackStack(null)
-                .commit();
+        openWorkerDetailFragment(workerId);
     }
 
     private void openWorkerDetailFragment(int workerId) {
         ProfileFragment detailFragment = new ProfileFragment();
+
         Bundle args = new Bundle();
         args.putInt("workerId", workerId);
         detailFragment.setArguments(args);
 
+        // Reemplaza el fragmento actual con ProfileFragment
         getActivity().getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fragment_container, detailFragment)
                 .addToBackStack(null)
@@ -98,10 +99,8 @@ public class WorkersFragment extends Fragment implements WorkersAdapter.OnWorker
             }
         }
 
-        // Actualizar el adaptador con la lista filtrada
         adapter.updateData(filteredWorkers, filteredIds, filteredProfessions, filteredCities);
     }
-
 
     private void fetchWorkers() {
         String url = "https://apployment.online/public/api/workers";
@@ -112,7 +111,6 @@ public class WorkersFragment extends Fragment implements WorkersAdapter.OnWorker
                 if (statusCode == 200) {
                     String respuesta = new String(responseBody);
                     try {
-
                         JSONObject jsonObject = new JSONObject(respuesta);
                         JSONArray jsonArray = jsonObject.getJSONArray("data");
 
@@ -125,26 +123,21 @@ public class WorkersFragment extends Fragment implements WorkersAdapter.OnWorker
                         for (int i = 0; i < jsonArray.length(); i++) {
                             JSONObject worker = jsonArray.getJSONObject(i);
 
-                            // Obtener nombres completos y verificar que existan
                             String names = worker.optString("names", "");
                             String lastName = worker.optString("last_name", "");
                             String fullName = names + " " + lastName;
                             workersList.add(fullName);
 
-                            // Obtener ID y agregar a la lista de IDs
                             String id = worker.optString("id", "");
                             workersIds.add(id);
 
-                            // Obtener profesión y agregar a la lista
                             String professionValue = worker.optString("profession", "N/A");
                             profession.add(professionValue);
 
-                            // Obtener ciudad y agregar a la lista
                             String cityValue = worker.optString("city", "N/A");
                             cities.add(cityValue);
                         }
 
-                        // Actualizar el adaptador
                         adapter.notifyDataSetChanged();
                         mostrarMensaje("Datos recibidos con éxito");
 

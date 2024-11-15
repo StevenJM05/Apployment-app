@@ -17,6 +17,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import cz.msebera.android.httpclient.Header;
+import sv.edu.itca.apployment.modelos.UserSession;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -69,6 +70,7 @@ public class LoginActivity extends AppCompatActivity {
 
                             JSONObject takearray = jsonResponse.optJSONObject("user");
                             String Iduser = takearray.optString("id");
+                            UserSession.getInstance().setUserId(Iduser);
                             Toast.makeText(LoginActivity.this, Iduser, Toast.LENGTH_SHORT).show();
 
 

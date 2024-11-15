@@ -52,7 +52,7 @@ public class config extends Fragment {
         btn_about_us.setOnClickListener(v -> navigateToFragment(new acercade()));
         btn_privacy_policy.setOnClickListener(v -> navigateToFragment(new politics()));
         btn_who_we_are.setOnClickListener(v -> navigateToFragment(new quienes()));
-        btn_account.setOnClickListener(v -> navigateToFragment(new ProfileFragment()));
+        btn_account.setOnClickListener(v -> navigateToFragment(new ProfileUser()));
 
         return view;
     }

@@ -150,7 +150,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/phone"
-                android:contentDescription="phone_icon"/>
+                android:contentDescription="@string/phone_icon"/>
             <TextView
                 android:id="@+id/phone_number"
                 android:layout_width="wrap_content"
@@ -170,7 +170,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/email_icon"
-                android:contentDescription="email icon"/>
+                android:contentDescription="@string/email_icon"/>
 
             <TextView
                 android:id="@+id/email_profile"
@@ -229,9 +229,17 @@
                 android:layout_marginTop="16dp"/>
         </LinearLayout>
 
-
-
-
+        <Button
+            android:id="@+id/send_message_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Enviar Mensaje"
+            android:textSize="18sp"
+            android:padding="12dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:textColor="@android:color/white"/>
 
     </LinearLayout>
 </ScrollView>
+

@@ -40,6 +40,9 @@ public class MainActivity extends AppCompatActivity {
 
                 if (item.getItemId() == R.id.navigation_trabajadores) {
                     selectedFragment = new WorkersFragment();
+                    Bundle bundle = new Bundle();
+                    bundle.putString("userId", userid);
+                    selectedFragment.setArguments(bundle);
                 } else if (item.getItemId() == R.id.navigation_publicaciones) {
                     selectedFragment = new PublicationsFragment();
                 } else if (item.getItemId() == R.id.navigation_buscar) {
