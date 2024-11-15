@@ -21,8 +21,21 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.Messag
     }
 
     @Override
+    public int getItemViewType(int position) {
+        // Determina el tipo de vista según el remitente del mensaje
+        return messages.get(position).isSentByCurrentUser() ? 1 : 0;
+    }
+
+    @Override
     public MessageViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_message, parent, false);
+        View view;
+        if (viewType == 1) { // Mensajes enviados
+            view = LayoutInflater.from(parent.getContext())
+                    .inflate(R.layout.item_message_sent, parent, false);
+        } else { // Mensajes recibidos
+            view = LayoutInflater.from(parent.getContext())
+                    .inflate(R.layout.item_message_received, parent, false);
+        }
         return new MessageViewHolder(view);
     }
 
@@ -30,13 +43,6 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.Messag
     public void onBindViewHolder(MessageViewHolder holder, int position) {
         Message message = messages.get(position);
         holder.textViewMessage.setText(message.getContent());
-
-        // Cambiar el estilo de acuerdo con el remitente
-        if (message.isSentByCurrentUser()) {
-            holder.textViewMessage.setBackgroundResource(R.drawable.sent_message_background);
-        } else {
-            holder.textViewMessage.setBackgroundResource(R.drawable.received_message_background);
-        }
     }
 
     @Override
@@ -44,7 +50,7 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.Messag
         return messages.size();
     }
 
-    public class MessageViewHolder extends RecyclerView.ViewHolder {
+    public static class MessageViewHolder extends RecyclerView.ViewHolder {
         TextView textViewMessage;
 
         public MessageViewHolder(View itemView) {
@@ -53,5 +59,3 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.Messag
         }
     }
 }
-
-
