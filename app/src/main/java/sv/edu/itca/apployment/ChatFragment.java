@@ -73,6 +73,7 @@ public class ChatFragment extends Fragment implements ConversationsAdapter.OnCon
         client.get(url, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                // Limpia las listas antes de agregar nuevos datos
                 conversationIds.clear();
                 workerNames.clear();
                 lastMessages.clear();
@@ -80,20 +81,25 @@ public class ChatFragment extends Fragment implements ConversationsAdapter.OnCon
                 for (int i = 0; i < response.length(); i++) {
                     try {
                         JSONObject conversation = response.getJSONObject(i);
+
+                        // Obtén los datos de cada conversación
                         String conversationId = conversation.getString("id");
                         String workerName = conversation.getString("other_user_name");
-                        String lastMessage = conversation.optString("last_message");
-                        if (lastMessage == null) {
-                            lastMessage = "No messages yet";
-                        }
 
+                        // Maneja el último mensaje correctamente
+                        String lastMessage = conversation.isNull("last_message") ? "No messages yet" : conversation.getString("last_message");
+
+                        // Agrega los datos a las listas
                         conversationIds.add(conversationId);
                         workerNames.add(workerName);
                         lastMessages.add(lastMessage);
+
                     } catch (JSONException e) {
                         e.printStackTrace();
+                        Toast.makeText(getContext(), "Error al procesar la respuesta", Toast.LENGTH_SHORT).show();
                     }
                 }
+                // Notifica al adaptador que los datos han cambiado
                 adapter.notifyDataSetChanged();
             }
 
