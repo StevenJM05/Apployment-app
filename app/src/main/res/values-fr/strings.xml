@@ -1,52 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Apployment</string>
-    <string name="hello_blank_fragment">Vous n\'avez pas de compte ? Créez-en un.</string>
-    <string name="no_tienes_una_cuenta_crea_una">Vous n\'avez pas de compte ? Créez-en un.</string>
+
     <string name="no_tienes_una_cuenta_crea_una">Vous n\'avez pas de compte ? Créez-en un.</string>
     <string name="inicio_de_sesi_n">Se connecter</string>
-    <string name="inicio_de_sesi_n">Se connecter</string>
+
     <string name="ingrese_correo_electr_nico">Entrez l\'e-mail</string>
     <string name="ingrese_su_contrase_a">Entrez votre mot de passe</string>
-    <string name="ingrese_su_contrase_a">Entrez votre mot de passe</string>
+
     <string name="ingresar">Entrer dans</string>
     <string name="perfil">Profil</string>
-    <string name="perfil">Profil</string>
-    <string name="ingrese_su_nombre">Entrez votre nom</string>
     <string name="ingrese_su_nombre">Entrez votre nom</string>
     <string name="sign_up">REGISTRE</string>
-    <string name="sign_up">REGISTRE</string>
-    <string name="ingrese_un_usuario">Entrez un utilisateur</string>
     <string name="ingrese_un_usuario">Entrez un utilisateur</string>
     <string name="ingrese_su_correo">Entrez votre email</string>
-    <string name="ingrese_su_correo">Entrez votre email</string>
     <string name="contrase_a">Mot de passe</string>
-    <string name="contrase_a">Mot de passe</string>
-    <string name="confirme_su_contrase_a">Confirmez votre mot de passe</string>
+
     <string name="confirme_su_contrase_a">Confirmez votre mot de passe</string>
     <string name="registrarse">Registre</string>
-    <string name="registrarse">Registre</string>
-    <string name="ya_tienes_cuenta">Avez-vous déjà un compte ?</string>
     <string name="ya_tienes_cuenta">Avez-vous déjà un compte ?</string>
     <string name="iniciar_sesi_n">Se connecter</string>
-    <string name="iniciar_sesi_n">Se connecter</string>
-    <string name="user_name">Nom d\'utilisateur</string>
     <string name="user_name">Nom d\'utilisateur</string>
     <string name="descripcion_de_la_publicacion">Descripcion de la publicacion</string>
-    <string name="descripcion_de_la_publicacion">Descriptif de la publication</string>
-    <string name="descripcion_de_la_publicacion">Descriptif de la publication</string>
-    <string name="like">comme</string>
     <string name="like">comme</string>
     <string name="ver_mas">voir plus</string>
-    <string name="ver_mas">voir plus</string>
     <string name="detalles_de_la_publicacion">Détails de la publication</string>
-    <string name="detalles_de_la_publicacion">Détails de la publication</string>
-    <string name="telefono">téléphone</string>
     <string name="telefono">téléphone</string>
     <string name="ubicacion">Emplacement</string>
     <string name="fecha">Date</string>
     <string name="bienvenido_a">Accueillir</string>
-    <string name="bienvenido_a">Accueillir</string>
-    <string name="agregar_publicaci_n">Ajouter un message</string>
     <string name="agregar_publicaci_n">Ajouter un message</string>
 </resources>

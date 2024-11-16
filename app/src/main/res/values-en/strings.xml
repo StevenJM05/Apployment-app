@@ -2,21 +2,15 @@
 <resources>
     <string name="app_name">Apployment</string>
     <string name="no_tienes_una_cuenta_crea_una">Don\'t have an account? Create one.</string>
-    <string name="no_tienes_una_cuenta_crea_una">Don\'t have an account? Create one.</string>
-    <string name="inicio_de_sesi_n">Login</string>
     <string name="inicio_de_sesi_n">Login</string>
     <string name="ingrese_correo_electr_nico">Enter email</string>
     <string name="ingrese_su_contrase_a">Enter your password</string>
     <string name="ingresar">Get into</string>
     <string name="perfil">Profile</string>
-    <string name="perfil">Profile</string>
     <string name="ingrese_su_nombre">Enter your Name</string>
-    <string name="sign_up">REGISTER</string>
     <string name="sign_up">REGISTER</string>
     <string name="ingrese_un_usuario">Enter a user</string>
     <string name="ingrese_su_correo">Enter your email</string>
-    <string name="ingrese_su_correo">Enter your email</string>
-    <string name="contrase_a">Password</string>
     <string name="contrase_a">Password</string>
     <string name="confirme_su_contrase_a">Confirm your password</string>
     <string name="registrarse">Register</string>
